@@ -1,0 +1,121 @@
+
+Prefixes:
+     xsd: http://www.w3.org/2001/XMLSchema
+     ns2: http://ws.polarion.com/ProjectWebService-types
+     ns0: http://ws.polarion.com/ProjectWebService-impl
+     ns1: http://ws.polarion.com/types
+
+Global elements:
+     ns0:createUser(in0: xsd:string)
+     ns0:createUserResponse(createUserReturn: ns2:User)
+     ns0:getContainedGroups(projectGroupURI: ns1:SubterraURI)
+     ns0:getContainedGroupsResponse(getContainedGroupsReturn: ns2:ProjectGroup[])
+     ns0:getContainedProjects(projectGroupURI: ns1:SubterraURI)
+     ns0:getContainedProjectsResponse(getContainedProjectsReturn: ns2:Project[])
+     ns0:getDeepContainedProjects(projectGroupURI: ns1:SubterraURI)
+     ns0:getDeepContainedProjectsResponse(getDeepContainedProjectsReturn: ns2:Project[])
+     ns0:getProject(projectID: xsd:string)
+     ns0:getProjectAtLocation(location: ns1:Location)
+     ns0:getProjectAtLocationResponse(getProjectAtLocationReturn: ns2:Project)
+     ns0:getProjectByURI(projectURI: ns1:SubterraURI)
+     ns0:getProjectByURIResponse(getProjectByURIReturn: ns2:Project)
+     ns0:getProjectGroup(projectGroupURI: ns1:SubterraURI)
+     ns0:getProjectGroupAtLocation(location: ns1:Location)
+     ns0:getProjectGroupAtLocationResponse(getProjectGroupAtLocationReturn: ns2:ProjectGroup)
+     ns0:getProjectGroupResponse(getProjectGroupReturn: ns2:ProjectGroup)
+     ns0:getProjectResponse(getProjectReturn: ns2:Project)
+     ns0:getProjectUsers(projectID: xsd:string)
+     ns0:getProjectUsersResponse(getProjectUsersReturn: ns2:User[])
+     ns0:getRootProjectGroup()
+     ns0:getRootProjectGroupResponse(getRootProjectGroupReturn: ns2:ProjectGroup)
+     ns0:getUser(userID: xsd:string)
+     ns0:getUserAvatarURL(userURI: xsd:string)
+     ns0:getUserAvatarURLResponse(getUserAvatarURLReturn: xsd:string)
+     ns0:getUserByUri(userURI: ns1:SubterraURI)
+     ns0:getUserByUriResponse(getUserByUriReturn: ns2:User)
+     ns0:getUserResponse(getUserReturn: ns2:User)
+     ns0:getUsers()
+     ns0:getUsersResponse(getUsersReturn: ns2:User[])
+     ns0:updateUser(in0: ns2:User)
+     ns0:updateUserResponse()
+     
+
+Global types:
+     xsd:anyType
+     ns2:Project(active: xsd:boolean, description: ns1:Text, finish: xsd:date, id: xsd:string, lead: ns2:User, location: ns1:Location, lockWorkRecordsDate: xsd:date, name: xsd:string, projectGroupURI: ns1:SubterraURI, start: xsd:date, trackerPrefix: xsd:string, uri: ns1:SubterraURI, unresolvable: xsd:boolean)
+     ns2:ProjectGroup(groupURIs: ns1:ArrayOfSubterraURI, location: ns1:Location, name: xsd:string, parentURI: ns1:SubterraURI, projectIDs: ns1:ArrayOfstring, uri: ns1:SubterraURI, unresolvable: xsd:boolean)
+     ns2:User(description: ns1:Text, disabledNotifications: xsd:boolean, email: xsd:string, homePageContent: ns1:Text, id: xsd:string, name: xsd:string, voteURIs: ns1:ArrayOfSubterraURI, watcheURIs: ns1:ArrayOfSubterraURI, uri: ns1:SubterraURI, unresolvable: xsd:boolean)
+     ns1:ArrayOfSubterraURI(SubterraURI: ns1:SubterraURI[])
+     ns1:ArrayOfstring(string: xsd:string[])
+     ns1:Location
+     ns1:SubterraURI
+     ns1:Text(type: xsd:string, content: xsd:string, contentLossy: xsd:boolean)
+     xsd:ENTITIES
+     xsd:ENTITY
+     xsd:ID
+     xsd:IDREF
+     xsd:IDREFS
+     xsd:NCName
+     xsd:NMTOKEN
+     xsd:NMTOKENS
+     xsd:NOTATION
+     xsd:Name
+     xsd:QName
+     xsd:anySimpleType
+     xsd:anyURI
+     xsd:base64Binary
+     xsd:boolean
+     xsd:byte
+     xsd:date
+     xsd:dateTime
+     xsd:decimal
+     xsd:double
+     xsd:duration
+     xsd:float
+     xsd:gDay
+     xsd:gMonth
+     xsd:gMonthDay
+     xsd:gYear
+     xsd:gYearMonth
+     xsd:hexBinary
+     xsd:int
+     xsd:integer
+     xsd:language
+     xsd:long
+     xsd:negativeInteger
+     xsd:nonNegativeInteger
+     xsd:nonPositiveInteger
+     xsd:normalizedString
+     xsd:positiveInteger
+     xsd:short
+     xsd:string
+     xsd:time
+     xsd:token
+     xsd:unsignedByte
+     xsd:unsignedInt
+     xsd:unsignedLong
+     xsd:unsignedShort
+
+Bindings:
+     Soap11Binding: {http://ws.polarion.com/ProjectWebService}ProjectWebServiceSoapBinding
+
+Service: ProjectWebServiceService
+     Port: ProjectWebService (Soap11Binding: {http://ws.polarion.com/ProjectWebService}ProjectWebServiceSoapBinding)
+         Operations:
+            createUser(in0: xsd:string) -> createUserReturn: ns2:User
+            getContainedGroups(projectGroupURI: ns1:SubterraURI) -> getContainedGroupsReturn: ns2:ProjectGroup[]
+            getContainedProjects(projectGroupURI: ns1:SubterraURI) -> getContainedProjectsReturn: ns2:Project[]
+            getDeepContainedProjects(projectGroupURI: ns1:SubterraURI) -> getDeepContainedProjectsReturn: ns2:Project[]
+            getProject(projectID: xsd:string) -> getProjectReturn: ns2:Project
+            getProjectAtLocation(location: ns1:Location) -> getProjectAtLocationReturn: ns2:Project
+            getProjectByURI(projectURI: ns1:SubterraURI) -> getProjectByURIReturn: ns2:Project
+            getProjectGroup(projectGroupURI: ns1:SubterraURI) -> getProjectGroupReturn: ns2:ProjectGroup
+            getProjectGroupAtLocation(location: ns1:Location) -> getProjectGroupAtLocationReturn: ns2:ProjectGroup
+            getProjectUsers(projectID: xsd:string) -> getProjectUsersReturn: ns2:User[]
+            getRootProjectGroup() -> getRootProjectGroupReturn: ns2:ProjectGroup
+            getUser(userID: xsd:string) -> getUserReturn: ns2:User
+            getUserAvatarURL(userURI: xsd:string) -> getUserAvatarURLReturn: xsd:string
+            getUserByUri(userURI: ns1:SubterraURI) -> getUserByUriReturn: ns2:User
+            getUsers() -> getUsersReturn: ns2:User[]
+            updateUser(in0: ns2:User) -> 
+

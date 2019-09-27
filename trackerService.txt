@@ -1,0 +1,703 @@
+
+Prefixes:
+     ns2: http://ws.polarion.com/TrackerWebService-types
+     ns0: http://ws.polarion.com/TrackerWebService-impl
+     ns4: http://ws.polarion.com/PlanningWebService-types
+     ns5: http://ws.polarion.com/TrackerWebService
+     ns3: http://ws.polarion.com/ProjectWebService-types
+     xsd: http://www.w3.org/2001/XMLSchema
+     ns1: http://ws.polarion.com/types
+
+Global elements:
+     ns0:addApprovee(workitemURI: ns1:SubterraURI, approveeId: xsd:string)
+     ns0:addApproveeResponse()
+     ns0:addAssignee(workitemURI: ns1:SubterraURI, assigneeId: xsd:string)
+     ns0:addAssigneeResponse(addAssigneeReturn: xsd:boolean)
+     ns0:addCategory(workitemURI: ns1:SubterraURI, categoryId: xsd:string)
+     ns0:addCategoryResponse(addCategoryReturn: xsd:boolean)
+     ns0:addComment(parentObjectUri: ns1:SubterraURI, title: xsd:string, content: ns1:Text)
+     ns0:addCommentResponse(addCommentReturn: ns1:SubterraURI)
+     ns0:addCommentToActivity(activityGlobalId: xsd:string, commentText: ns1:Text)
+     ns0:addCommentToActivityResponse()
+     ns0:addExternalLinkedRevision(workitemURI: ns1:SubterraURI, repositoryName: xsd:string, revisionId: xsd:string)
+     ns0:addExternalLinkedRevisionResponse(addExternalLinkedRevisionReturn: xsd:boolean)
+     ns0:addExternallyLinkedItem(workitemURI: ns1:SubterraURI, linkedExternalWorkitemURI: xsd:string, role: ns2:EnumOptionId)
+     ns0:addExternallyLinkedItemResponse(addExternallyLinkedItemReturn: xsd:boolean)
+     ns0:addHyperlink(workitemURI: ns1:SubterraURI, url: xsd:string, role: ns2:EnumOptionId)
+     ns0:addHyperlinkResponse(addHyperlinkReturn: xsd:boolean)
+     ns0:addLinkedItem(workitemURI: ns1:SubterraURI, linkedWorkitemURI: ns1:SubterraURI, role: ns2:EnumOptionId)
+     ns0:addLinkedItemResponse(addLinkedItemReturn: xsd:boolean)
+     ns0:addLinkedItemWithRev(in0: ns1:SubterraURI, in1: ns1:SubterraURI, in2: ns2:EnumOptionId, in3: xsd:string, in4: xsd:boolean)
+     ns0:addLinkedItemWithRevResponse(addLinkedItemWithRevReturn: xsd:boolean)
+     ns0:addLinkedOslcItem(workitemURI: ns1:SubterraURI, linkedOslcItemURI: xsd:string, role: ns2:EnumOptionId, label: xsd:string)
+     ns0:addLinkedOslcItemResponse(addLinkedOslcItemReturn: xsd:boolean)
+     ns0:addLinkedRevision(workitemURI: ns1:SubterraURI, revisionId: xsd:string)
+     ns0:addLinkedRevisionResponse(addLinkedRevisionReturn: xsd:boolean)
+     ns0:addPlaningContraint(workitemURI: ns1:SubterraURI, date: xsd:dateTime, constraint: ns2:EnumOptionId)
+     ns0:addPlaningContraintResponse(addPlaningContraintReturn: xsd:boolean)
+     ns0:canCommentActivity(activityGlobalId: xsd:string)
+     ns0:canCommentActivityResponse(canCommentActivityReturn: xsd:boolean)
+     ns0:canCurrentUserAddCommentToActivity(activityGlobalId: xsd:string)
+     ns0:canCurrentUserAddCommentToActivityResponse(canCurrentUserAddCommentToActivityReturn: xsd:boolean)
+     ns0:createAttachment(workitemURI: ns1:SubterraURI, fileName: xsd:string, title: xsd:string, data: xsd:base64Binary)
+     ns0:createAttachmentResponse()
+     ns0:createBaseline(projectId: xsd:string, name: xsd:string, description: xsd:string, revision: xsd:string)
+     ns0:createBaselineResponse(createBaselineReturn: ns2:Baseline)
+     ns0:createComment(workitemURI: ns1:SubterraURI, content: ns1:Text)
+     ns0:createCommentNew(parentURI: ns1:SubterraURI, title: xsd:string, content: ns1:Text, visibleTo: xsd:string[])
+     ns0:createCommentNewResponse(createCommentNewReturn: ns1:SubterraURI)
+     ns0:createCommentResponse()
+     ns0:createDocument(projectId: xsd:string, location: ns1:Location, documentName: xsd:string, documentTitle: xsd:string, allowedWITypes: ns2:EnumOptionId[], structureLinkRole: ns2:EnumOptionId, homePageContent: xsd:string)
+     ns0:createDocumentComment(documentURI: ns1:SubterraURI, text: ns1:Text)
+     ns0:createDocumentCommentReferringWI(documentURI: ns1:SubterraURI, workItemURI: ns1:SubterraURI, text: ns1:Text)
+     ns0:createDocumentCommentReferringWIResponse(createDocumentCommentReferringWIReturn: ns1:SubterraURI)
+     ns0:createDocumentCommentReply(parentURI: ns1:SubterraURI, text: ns1:Text)
+     ns0:createDocumentCommentReplyResponse(createDocumentCommentReplyReturn: ns1:SubterraURI)
+     ns0:createDocumentCommentResponse(createDocumentCommentReturn: ns1:SubterraURI)
+     ns0:createDocumentResponse(createDocumentReturn: xsd:string)
+     ns0:createFolder(projectId: xsd:string, parentName: xsd:string, name: xsd:string, title: xsd:string)
+     ns0:createFolderResponse(createFolderReturn: ns2:Folder)
+     ns0:createModule(projectId: xsd:string, location: ns1:Location, moduleName: xsd:string, allowedWITypes: ns2:EnumOptionId[], structureLinkRole: ns2:EnumOptionId, parentToChild: xsd:boolean, homePageContent: xsd:string)
+     ns0:createModuleResponse(createModuleReturn: xsd:string)
+     ns0:createWorkItem(content: ns2:WorkItem)
+     ns0:createWorkItemInModule(moduleURI: ns1:SubterraURI, parentWorkItemURI: ns1:SubterraURI, workItem: ns2:WorkItem)
+     ns0:createWorkItemInModuleResponse(createWorkItemInModuleReturn: xsd:string)
+     ns0:createWorkItemResponse(createWorkItemReturn: xsd:string)
+     ns0:createWorkRecord(workitemURI: ns1:SubterraURI, user: ns3:User, date: xsd:date, timeSpent: ns1:duration)
+     ns0:createWorkRecordResponse()
+     ns0:createWorkRecordWithTypeAndComment(workitemURI: ns1:SubterraURI, user: ns3:User, date: xsd:date, type: ns2:EnumOptionId, timeSpent: ns1:duration, comment: xsd:string)
+     ns0:createWorkRecordWithTypeAndCommentResponse()
+     ns0:deleteAttachment(workitemURI: ns1:SubterraURI, id: xsd:string)
+     ns0:deleteAttachmentResponse()
+     ns0:deleteBaseline(baselineURI: ns1:SubterraURI)
+     ns0:deleteBaselineResponse()
+     ns0:deleteModule(moduleURI: ns1:SubterraURI)
+     ns0:deleteModuleResponse()
+     ns0:deleteWorkRecord(workitemURI: ns1:SubterraURI, workRecordURI: ns1:SubterraURI)
+     ns0:deleteWorkRecordResponse()
+     ns0:doAutoSuspect(workitemURI: ns1:SubterraURI)
+     ns0:doAutoSuspectResponse()
+     ns0:doAutoassign(workitemURI: ns1:SubterraURI)
+     ns0:doAutoassignResponse()
+     ns0:editApproval(workitemURI: ns1:SubterraURI, approveeId: xsd:string, status: ns2:EnumOptionId)
+     ns0:editApprovalResponse()
+     ns0:generateHistory(workitemURI: ns1:SubterraURI, ignoredFields: xsd:string[], fieldOrder: xsd:string[])
+     ns0:generateHistoryResponse(generateHistoryReturn: ns2:Change[])
+     ns0:getActivityByGlobalId(activityGlobalId: xsd:string)
+     ns0:getActivityByGlobalIdResponse(getActivityByGlobalIdReturn: ns2:Activity)
+     ns0:getAllEnumOptionIdsForId(projectID: xsd:string, enumId: xsd:string)
+     ns0:getAllEnumOptionIdsForIdResponse(getAllEnumOptionIdsForIdReturn: ns2:EnumOptionId[])
+     ns0:getAllEnumOptionIdsForKey(projectID: xsd:string, key: xsd:string)
+     ns0:getAllEnumOptionIdsForKeyResponse(getAllEnumOptionIdsForKeyReturn: ns2:EnumOptionId[])
+     ns0:getAllEnumOptionsForId(projectID: xsd:string, enumID: xsd:string)
+     ns0:getAllEnumOptionsForIdResponse(getAllEnumOptionsForIdReturn: ns2:EnumOption[])
+     ns0:getAllEnumOptionsForKey(projectID: xsd:string, key: xsd:string)
+     ns0:getAllEnumOptionsForKeyResponse(getAllEnumOptionsForKeyReturn: ns2:EnumOption[])
+     ns0:getAllowedApprovers(workitemURI: ns1:SubterraURI)
+     ns0:getAllowedApproversResponse(getAllowedApproversReturn: ns3:User[])
+     ns0:getAllowedAssignees(workitemURI: ns1:SubterraURI)
+     ns0:getAllowedAssigneesResponse(getAllowedAssigneesReturn: ns3:User[])
+     ns0:getAvailableActions(workitemURI: ns1:SubterraURI)
+     ns0:getAvailableActionsResponse(getAvailableActionsReturn: ns2:WorkflowAction[])
+     ns0:getAvailableEnumOptionIdsForId(workitemURI: ns1:SubterraURI, enumID: xsd:string)
+     ns0:getAvailableEnumOptionIdsForIdResponse(getAvailableEnumOptionIdsForIdReturn: ns2:EnumOptionId[])
+     ns0:getAvailableEnumOptionIdsForKey(workitemURI: ns1:SubterraURI, key: xsd:string)
+     ns0:getAvailableEnumOptionIdsForKeyResponse(getAvailableEnumOptionIdsForKeyReturn: ns2:EnumOptionId[])
+     ns0:getBackLinkedWorkitems(workitemURI: ns1:SubterraURI)
+     ns0:getBackLinkedWorkitemsResponse(getBackLinkedWorkitemsReturn: ns2:LinkedWorkItem[])
+     ns0:getCategories(projectId: xsd:string)
+     ns0:getCategoriesResponse(getCategoriesReturn: ns2:Category[])
+     ns0:getChildFolders(projectId: xsd:string, parentFolderId: xsd:string)
+     ns0:getChildFoldersResponse(getChildFoldersReturn: ns2:Folder[])
+     ns0:getCustomField(workitemURI: ns1:SubterraURI, key: xsd:string)
+     ns0:getCustomFieldKeys(workitemURI: ns1:SubterraURI)
+     ns0:getCustomFieldKeysResponse(getCustomFieldKeysReturn: xsd:string[])
+     ns0:getCustomFieldResponse(getCustomFieldReturn: ns2:CustomField)
+     ns0:getCustomFieldType(workitemURI: ns1:SubterraURI, key: xsd:string)
+     ns0:getCustomFieldTypeResponse(getCustomFieldTypeReturn: ns2:CustomFieldType)
+     ns0:getCustomFieldTypes(workitemURI: ns1:SubterraURI)
+     ns0:getCustomFieldTypesResponse(getCustomFieldTypesReturn: ns2:CustomFieldType[])
+     ns0:getDefaultLanguageDefinition(projectId: xsd:string)
+     ns0:getDefaultLanguageDefinitionResponse(getDefaultLanguageDefinitionReturn: ns2:LanguageDefinition)
+     ns0:getDefinedCustomFieldKeys(projectID: xsd:string, typeID: xsd:string)
+     ns0:getDefinedCustomFieldKeysResponse(getDefinedCustomFieldKeysReturn: xsd:string[])
+     ns0:getDefinedCustomFieldType(projectID: xsd:string, typeID: xsd:string, key: xsd:string)
+     ns0:getDefinedCustomFieldTypeResponse(getDefinedCustomFieldTypeReturn: ns2:CustomFieldType)
+     ns0:getDefinedCustomFieldTypes(projectID: xsd:string, typeID: xsd:string)
+     ns0:getDefinedCustomFieldTypesResponse(getDefinedCustomFieldTypesReturn: ns2:CustomFieldType[])
+     ns0:getDocumentLocations(projectId: xsd:string)
+     ns0:getDocumentLocationsResponse(getDocumentLocationsReturn: ns1:Location[])
+     ns0:getDocumentSpaces(projectId: xsd:string)
+     ns0:getDocumentSpacesResponse(getDocumentSpacesReturn: xsd:string[])
+     ns0:getDurationHours(duration: xsd:string)
+     ns0:getDurationHoursResponse(getDurationHoursReturn: xsd:float)
+     ns0:getEnumControlKeyForId(projectID: xsd:string, enumID: xsd:string)
+     ns0:getEnumControlKeyForIdResponse(getEnumControlKeyForIdReturn: xsd:string)
+     ns0:getEnumControlKeyForKey(projectID: xsd:string, key: xsd:string)
+     ns0:getEnumControlKeyForKeyResponse(getEnumControlKeyForKeyReturn: xsd:string)
+     ns0:getEnumOptionFromObjectUriForId(uri: ns1:SubterraURI, enumId: xsd:string)
+     ns0:getEnumOptionFromObjectUriForIdResponse(getEnumOptionFromObjectUriForIdReturn: ns2:EnumOption)
+     ns0:getEnumOptionFromObjectUriForKey(uri: ns1:SubterraURI, prototypeName: xsd:string, key: xsd:string)
+     ns0:getEnumOptionFromObjectUriForKeyResponse(getEnumOptionFromObjectUriForKeyReturn: ns2:EnumOption)
+     ns0:getEnumOptionWithEnumId(workitemURI: ns1:SubterraURI, enumID: xsd:string, id: ns2:EnumOptionId)
+     ns0:getEnumOptionWithEnumIdResponse(getEnumOptionWithEnumIdReturn: ns2:EnumOption)
+     ns0:getEnumOptionWithKey(workitemURI: ns1:SubterraURI, key: xsd:string, id: ns2:EnumOptionId)
+     ns0:getEnumOptionWithKeyResponse(getEnumOptionWithKeyReturn: ns2:EnumOption)
+     ns0:getEnumOptionsForId(workitemURI: ns1:SubterraURI, enumID: xsd:string)
+     ns0:getEnumOptionsForIdResponse(getEnumOptionsForIdReturn: ns2:EnumOption[])
+     ns0:getEnumOptionsForIdWithControl(projectID: xsd:string, enumID: xsd:string, controlValue: xsd:string)
+     ns0:getEnumOptionsForIdWithControlResponse(getEnumOptionsForIdWithControlReturn: ns2:EnumOption[])
+     ns0:getEnumOptionsForKey(workitemURI: ns1:SubterraURI, key: xsd:string)
+     ns0:getEnumOptionsForKeyResponse(getEnumOptionsForKeyReturn: ns2:EnumOption[])
+     ns0:getEnumOptionsForKeyWithControl(projectID: xsd:string, key: xsd:string, controlValue: xsd:string)
+     ns0:getEnumOptionsForKeyWithControlResponse(getEnumOptionsForKeyWithControlReturn: ns2:EnumOption[])
+     ns0:getFilteredEnumOptionsForKey(uri: ns1:SubterraURI, key: xsd:string, filter: xsd:string)
+     ns0:getFilteredEnumOptionsForKeyResponse(getFilteredEnumOptionsForKeyReturn: ns2:EnumOption[])
+     ns0:getFolder(projectId: xsd:string, folderName: xsd:string)
+     ns0:getFolderForURI(objectURI: ns1:SubterraURI)
+     ns0:getFolderForURIResponse(getFolderForURIReturn: ns2:Folder)
+     ns0:getFolderResponse(getFolderReturn: ns2:Folder)
+     ns0:getFolders(projectId: xsd:string)
+     ns0:getFoldersResponse(getFoldersReturn: ns2:Folder[])
+     ns0:getInitialWorkflowAction(workitemURI: ns1:SubterraURI)
+     ns0:getInitialWorkflowActionForProjectAndType(projectId: xsd:string, wiType: ns2:EnumOptionId)
+     ns0:getInitialWorkflowActionForProjectAndTypeResponse(getInitialWorkflowActionForProjectAndTypeReturn: ns2:WorkflowAction)
+     ns0:getInitialWorkflowActionResponse(getInitialWorkflowActionReturn: ns2:WorkflowAction)
+     ns0:getLanguageDefinition(projectId: xsd:string, language: xsd:string)
+     ns0:getLanguageDefinitionResponse(getLanguageDefinitionReturn: ns2:LanguageDefinition)
+     ns0:getLanguageDefinitions(projectId: xsd:string)
+     ns0:getLanguageDefinitionsResponse(getLanguageDefinitionsReturn: ns2:LanguageDefinition[])
+     ns0:getLinkedResources(workitemURI: ns1:SubterraURI)
+     ns0:getLinkedResourcesResponse(getLinkedResourcesReturn: ns2:LinkedResource[])
+     ns0:getLocalizedWorkItemDescription(uri: ns1:SubterraURI, language: xsd:string)
+     ns0:getLocalizedWorkItemDescriptionField(projectId: xsd:string, language: xsd:string, type: ns2:EnumOptionId)
+     ns0:getLocalizedWorkItemDescriptionFieldResponse(getLocalizedWorkItemDescriptionFieldReturn: xsd:string)
+     ns0:getLocalizedWorkItemDescriptionResponse(getLocalizedWorkItemDescriptionReturn: ns1:Text)
+     ns0:getLocalizedWorkItemTitle(uri: ns1:SubterraURI, language: xsd:string)
+     ns0:getLocalizedWorkItemTitleField(projectId: xsd:string, language: xsd:string, type: ns2:EnumOptionId)
+     ns0:getLocalizedWorkItemTitleFieldResponse(getLocalizedWorkItemTitleFieldReturn: xsd:string)
+     ns0:getLocalizedWorkItemTitleResponse(getLocalizedWorkItemTitleReturn: xsd:string)
+     ns0:getModuleByLocation(projectId: xsd:string, location: ns1:Location)
+     ns0:getModuleByLocationResponse(getModuleByLocationReturn: ns2:Module)
+     ns0:getModuleByLocationWithFields(projectId: xsd:string, location: ns1:Location, fields: xsd:string[])
+     ns0:getModuleByLocationWithFieldsResponse(getModuleByLocationWithFieldsReturn: ns2:Module)
+     ns0:getModuleByUri(uri: ns1:SubterraURI)
+     ns0:getModuleByUriResponse(getModuleByUriReturn: ns2:Module)
+     ns0:getModuleByUriWithFields(uri: ns1:SubterraURI, fields: xsd:string[])
+     ns0:getModuleByUriWithFieldsResponse(getModuleByUriWithFieldsReturn: ns2:Module)
+     ns0:getModuleUris(projectId: xsd:string, location: ns1:Location)
+     ns0:getModuleUrisResponse(getModuleUrisReturn: xsd:string[])
+     ns0:getModuleWorkItemUris(moduleURI: ns1:SubterraURI, parentWorkItemURI: ns1:SubterraURI, deep: xsd:boolean)
+     ns0:getModuleWorkItemUrisResponse(getModuleWorkItemUrisReturn: xsd:string[])
+     ns0:getModuleWorkItems(moduleURI: ns1:SubterraURI, parentWorkItemURI: ns1:SubterraURI, deep: xsd:boolean, fields: xsd:string[])
+     ns0:getModuleWorkItemsResponse(getModuleWorkItemsReturn: ns2:WorkItem[])
+     ns0:getModules(projectId: xsd:string, location: ns1:Location)
+     ns0:getModulesResponse(getModulesReturn: ns2:Module[])
+     ns0:getModulesSubFolders(projectId: xsd:string, location: ns1:Location)
+     ns0:getModulesSubFoldersResponse(getModulesSubFoldersReturn: ns1:Location[])
+     ns0:getModulesWithFields(projectId: xsd:string, location: ns1:Location, fields: xsd:string[])
+     ns0:getModulesWithFieldsResponse(getModulesWithFieldsReturn: ns2:Module[])
+     ns0:getOneDayLength()
+     ns0:getOneDayLengthResponse(getOneDayLengthReturn: xsd:long)
+     ns0:getRevision(repositoryName: xsd:string, revisionId: xsd:string)
+     ns0:getRevisionByUri(revisionURI: ns1:SubterraURI)
+     ns0:getRevisionByUriResponse(getRevisionByUriReturn: ns1:Revision)
+     ns0:getRevisionResponse(getRevisionReturn: ns1:Revision)
+     ns0:getRevisions(in0: ns1:SubterraURI)
+     ns0:getRevisionsResponse(getRevisionsReturn: xsd:string[])
+     ns0:getRootFolders(projectId: xsd:string)
+     ns0:getRootFoldersResponse(getRootFoldersReturn: ns2:Folder[])
+     ns0:getTimepoints(projectId: xsd:string)
+     ns0:getTimepointsResponse(getTimepointsReturn: ns2:TimePoint[])
+     ns0:getUnavailableActions(workitemURI: ns1:SubterraURI)
+     ns0:getUnavailableActionsResponse(getUnavailableActionsReturn: ns2:WorkflowAction[])
+     ns0:getWikiPageByUri(uri: ns1:SubterraURI)
+     ns0:getWikiPageByUriResponse(getWikiPageByUriReturn: ns2:WikiPage)
+     ns0:getWikiPageByUriWithFields(uri: ns1:SubterraURI, fields: xsd:string[])
+     ns0:getWikiPageByUriWithFieldsResponse(getWikiPageByUriWithFieldsReturn: ns2:WikiPage)
+     ns0:getWikiPageUris(projectId: xsd:string, spaceId: xsd:string)
+     ns0:getWikiPageUrisResponse(getWikiPageUrisReturn: xsd:string[])
+     ns0:getWikiPages(projectId: xsd:string, spaceId: xsd:string)
+     ns0:getWikiPagesResponse(getWikiPagesReturn: ns2:WikiPage[])
+     ns0:getWikiPagesWithFields(projectId: xsd:string, spaceId: xsd:string, fields: xsd:string[])
+     ns0:getWikiPagesWithFieldsResponse(getWikiPagesWithFieldsReturn: ns2:WikiPage[])
+     ns0:getWikiSpaces(projectId: xsd:string)
+     ns0:getWikiSpacesResponse(getWikiSpacesReturn: xsd:string[])
+     ns0:getWorkItemById(projectId: xsd:string, workitemId: xsd:string)
+     ns0:getWorkItemByIdResponse(getWorkItemByIdReturn: ns2:WorkItem)
+     ns0:getWorkItemByIdsWithFields(projectId: xsd:string, workitemId: xsd:string, keys: xsd:string[])
+     ns0:getWorkItemByIdsWithFieldsResponse(getWorkItemByIdsWithFieldsReturn: ns2:WorkItem)
+     ns0:getWorkItemByUri(uri: ns1:SubterraURI)
+     ns0:getWorkItemByUriInRevision(uri: ns1:SubterraURI, revision: xsd:string)
+     ns0:getWorkItemByUriInRevisionResponse(getWorkItemByUriInRevisionReturn: ns2:WorkItem)
+     ns0:getWorkItemByUriInRevisionWithFields(uri: ns1:SubterraURI, revision: xsd:string, keys: xsd:string[])
+     ns0:getWorkItemByUriInRevisionWithFieldsResponse(getWorkItemByUriInRevisionWithFieldsReturn: ns2:WorkItem)
+     ns0:getWorkItemByUriResponse(getWorkItemByUriReturn: ns2:WorkItem)
+     ns0:getWorkItemByUriWithFields(uri: ns1:SubterraURI, keys: xsd:string[])
+     ns0:getWorkItemByUriWithFieldsResponse(getWorkItemByUriWithFieldsReturn: ns2:WorkItem)
+     ns0:getWorkItemsCount(query: xsd:string)
+     ns0:getWorkItemsCountResponse(getWorkItemsCountReturn: xsd:int)
+     ns0:getWorkItemsLinkedToRevision(revisionURI: ns1:SubterraURI)
+     ns0:getWorkItemsLinkedToRevisionResponse(getWorkItemsLinkedToRevisionReturn: ns2:WorkItem[])
+     ns0:getWorkItemsLinkedToRevisionWithFields(revisionURI: ns1:SubterraURI, keys: xsd:string[])
+     ns0:getWorkItemsLinkedToRevisionWithFieldsResponse(getWorkItemsLinkedToRevisionWithFieldsReturn: ns2:WorkItem[])
+     ns0:isHistoryAvailable()
+     ns0:isHistoryAvailableResponse(isHistoryAvailableReturn: xsd:boolean)
+     ns0:isResolvedComment(commentURI: ns1:SubterraURI)
+     ns0:isResolvedCommentResponse(isResolvedCommentReturn: xsd:boolean)
+     ns0:listActivitySources()
+     ns0:listActivitySourcesResponse(listActivitySourcesReturn: ns2:ActivitySource[])
+     ns0:listAllActivities(query: xsd:string, count: xsd:int)
+     ns0:listAllActivitiesGlobalIds(query: xsd:string, count: xsd:int)
+     ns0:listAllActivitiesGlobalIdsResponse(listAllActivitiesGlobalIdsReturn: xsd:string[])
+     ns0:listAllActivitiesResponse(listAllActivitiesReturn: ns2:Activity[])
+     ns0:listGroupActivities(uri: ns1:SubterraURI, query: xsd:string, count: xsd:int)
+     ns0:listGroupActivitiesGlobalIds(uri: ns1:SubterraURI, query: xsd:string, count: xsd:int)
+     ns0:listGroupActivitiesGlobalIdsResponse(listGroupActivitiesGlobalIdsReturn: xsd:string[])
+     ns0:listGroupActivitiesResponse(listGroupActivitiesReturn: ns2:Activity[])
+     ns0:listProjectActivities(projectId: xsd:string, query: xsd:string, count: xsd:int)
+     ns0:listProjectActivitiesGlobalIds(projectId: xsd:string, query: xsd:string, count: xsd:int)
+     ns0:listProjectActivitiesGlobalIdsResponse(listProjectActivitiesGlobalIdsReturn: xsd:string[])
+     ns0:listProjectActivitiesResponse(listProjectActivitiesReturn: ns2:Activity[])
+     ns0:moveWorkItemToDocument(workItemURI: ns1:SubterraURI, documentURI: ns1:SubterraURI, parentWorkItemURI: ns1:SubterraURI, position: xsd:int, retainDocumentFlow: xsd:boolean)
+     ns0:moveWorkItemToDocumentResponse()
+     ns0:moveWorkItemToModule(workItemURI: ns1:SubterraURI, moduleURI: ns1:SubterraURI, parentWorkItemURI: ns1:SubterraURI, position: xsd:int)
+     ns0:moveWorkItemToModuleResponse()
+     ns0:performWorkflowAction(workitemURI: ns1:SubterraURI, actionId: xsd:int)
+     ns0:performWorkflowActionResponse()
+     ns0:queryBaselines(query: xsd:string, sort: xsd:string)
+     ns0:queryBaselinesResponse(queryBaselinesReturn: ns2:Baseline[])
+     ns0:queryModuleUris(query: xsd:string, sort: xsd:string, resultsLimit: xsd:int)
+     ns0:queryModuleUrisBySQL(sqlQuery: xsd:string)
+     ns0:queryModuleUrisBySQLResponse(queryModuleUrisBySQLReturn: xsd:string[])
+     ns0:queryModuleUrisInBaseline(query: xsd:string, sort: xsd:string, baselineRevision: xsd:string, resultsLimit: xsd:int)
+     ns0:queryModuleUrisInBaselineBySQL(sqlQuery: xsd:string, baselineRevision: xsd:string)
+     ns0:queryModuleUrisInBaselineBySQLResponse(queryModuleUrisInBaselineBySQLReturn: xsd:string[])
+     ns0:queryModuleUrisInBaselineResponse(queryModuleUrisInBaselineReturn: xsd:string[])
+     ns0:queryModuleUrisResponse(queryModuleUrisReturn: xsd:string[])
+     ns0:queryModules(query: xsd:string, sort: xsd:string, fields: xsd:string[], resultsLimit: xsd:int)
+     ns0:queryModulesBySQL(sqlQuery: xsd:string, fields: xsd:string[])
+     ns0:queryModulesBySQLResponse(queryModulesBySQLReturn: ns2:Module[])
+     ns0:queryModulesInBaseline(query: xsd:string, sort: xsd:string, baselineRevision: xsd:string, fields: xsd:string[], resultsLimit: xsd:int)
+     ns0:queryModulesInBaselineBySQL(sqlQuery: xsd:string, baselineRevision: xsd:string, fields: xsd:string[])
+     ns0:queryModulesInBaselineBySQLResponse(queryModulesInBaselineBySQLReturn: ns2:Module[])
+     ns0:queryModulesInBaselineResponse(queryModulesInBaselineReturn: ns2:Module[])
+     ns0:queryModulesResponse(queryModulesReturn: ns2:Module[])
+     ns0:queryRevisionUris(query: xsd:string, sort: xsd:string, includeInternal: xsd:boolean)
+     ns0:queryRevisionUrisResponse(queryRevisionUrisReturn: xsd:string[])
+     ns0:queryRevisions(query: xsd:string, sort: xsd:string, fields: xsd:string[])
+     ns0:queryRevisionsResponse(queryRevisionsReturn: ns1:Revision[])
+     ns0:queryWikiPageUris(query: xsd:string, sort: xsd:string, resultsLimit: xsd:int)
+     ns0:queryWikiPageUrisBySQL(sqlQuery: xsd:string)
+     ns0:queryWikiPageUrisBySQLResponse(queryWikiPageUrisBySQLReturn: xsd:string[])
+     ns0:queryWikiPageUrisInBaseline(query: xsd:string, sort: xsd:string, baselineRevision: xsd:string, resultsLimit: xsd:int)
+     ns0:queryWikiPageUrisInBaselineBySQL(sqlQuery: xsd:string, baselineRevision: xsd:string)
+     ns0:queryWikiPageUrisInBaselineBySQLResponse(queryWikiPageUrisInBaselineBySQLReturn: xsd:string[])
+     ns0:queryWikiPageUrisInBaselineResponse(queryWikiPageUrisInBaselineReturn: xsd:string[])
+     ns0:queryWikiPageUrisResponse(queryWikiPageUrisReturn: xsd:string[])
+     ns0:queryWikiPages(query: xsd:string, sort: xsd:string, fields: xsd:string[], resultsLimit: xsd:int)
+     ns0:queryWikiPagesBySQL(sqlQuery: xsd:string, fields: xsd:string[])
+     ns0:queryWikiPagesBySQLResponse(queryWikiPagesBySQLReturn: ns2:WikiPage[])
+     ns0:queryWikiPagesInBaseline(query: xsd:string, sort: xsd:string, baselineRevision: xsd:string, fields: xsd:string[], resultsLimit: xsd:int)
+     ns0:queryWikiPagesInBaselineBySQL(sqlQuery: xsd:string, baselineRevision: xsd:string, fields: xsd:string[])
+     ns0:queryWikiPagesInBaselineBySQLResponse(queryWikiPagesInBaselineBySQLReturn: ns2:WikiPage[])
+     ns0:queryWikiPagesInBaselineResponse(queryWikiPagesInBaselineReturn: ns2:WikiPage[])
+     ns0:queryWikiPagesResponse(queryWikiPagesReturn: ns2:WikiPage[])
+     ns0:queryWorkItemUris(query: xsd:string, sort: xsd:string)
+     ns0:queryWorkItemUrisBySQL(sqlQuery: xsd:string)
+     ns0:queryWorkItemUrisBySQLResponse(queryWorkItemUrisBySQLReturn: xsd:string[])
+     ns0:queryWorkItemUrisInBaseline(query: xsd:string, sort: xsd:string, baselineRevision: xsd:string)
+     ns0:queryWorkItemUrisInBaselineBySQL(sqlQuery: xsd:string, baselineRevision: xsd:string)
+     ns0:queryWorkItemUrisInBaselineBySQLResponse(queryWorkItemUrisInBaselineBySQLReturn: xsd:string[])
+     ns0:queryWorkItemUrisInBaselineLimited(query: xsd:string, sort: xsd:string, baselineRevision: xsd:string, resultsLimit: xsd:int)
+     ns0:queryWorkItemUrisInBaselineLimitedResponse(queryWorkItemUrisInBaselineLimitedReturn: xsd:string[])
+     ns0:queryWorkItemUrisInBaselineResponse(queryWorkItemUrisInBaselineReturn: xsd:string[])
+     ns0:queryWorkItemUrisLimited(query: xsd:string, sort: xsd:string, resultsLimit: xsd:int)
+     ns0:queryWorkItemUrisLimitedResponse(queryWorkItemUrisLimitedReturn: xsd:string[])
+     ns0:queryWorkItemUrisResponse(queryWorkItemUrisReturn: xsd:string[])
+     ns0:queryWorkItems(query: xsd:string, sort: xsd:string, fields: xsd:string[])
+     ns0:queryWorkItemsBySQL(sqlQuery: xsd:string, fields: xsd:string[])
+     ns0:queryWorkItemsBySQLResponse(queryWorkItemsBySQLReturn: ns2:WorkItem[])
+     ns0:queryWorkItemsInBaseline(query: xsd:string, sort: xsd:string, baselineRevision: xsd:string, fields: xsd:string[])
+     ns0:queryWorkItemsInBaselineBySQL(sqlQuery: xsd:string, baselineRevision: xsd:string, fields: xsd:string[])
+     ns0:queryWorkItemsInBaselineBySQLResponse(queryWorkItemsInBaselineBySQLReturn: ns2:WorkItem[])
+     ns0:queryWorkItemsInBaselineLimited(query: xsd:string, sort: xsd:string, baselineRevision: xsd:string, fields: xsd:string[], resultsLimit: xsd:int)
+     ns0:queryWorkItemsInBaselineLimitedResponse(queryWorkItemsInBaselineLimitedReturn: ns2:WorkItem[])
+     ns0:queryWorkItemsInBaselineResponse(queryWorkItemsInBaselineReturn: ns2:WorkItem[])
+     ns0:queryWorkItemsInRevision(query: xsd:string, sort: xsd:string, revision: xsd:string, fields: xsd:string[])
+     ns0:queryWorkItemsInRevisionLimited(query: xsd:string, sort: xsd:string, revision: xsd:string, fields: xsd:string[], resultsLimit: xsd:int)
+     ns0:queryWorkItemsInRevisionLimitedResponse(queryWorkItemsInRevisionLimitedReturn: ns2:WorkItem[])
+     ns0:queryWorkItemsInRevisionResponse(queryWorkItemsInRevisionReturn: ns2:WorkItem[])
+     ns0:queryWorkItemsLimited(query: xsd:string, sort: xsd:string, fields: xsd:string[], resultsLimit: xsd:int)
+     ns0:queryWorkItemsLimitedResponse(queryWorkItemsLimitedReturn: ns2:WorkItem[])
+     ns0:queryWorkItemsResponse(queryWorkItemsReturn: ns2:WorkItem[])
+     ns0:removeApprovee(workitemURI: ns1:SubterraURI, approveeId: xsd:string)
+     ns0:removeApproveeResponse()
+     ns0:removeAssignee(workitemURI: ns1:SubterraURI, assigneeId: xsd:string)
+     ns0:removeAssigneeResponse(removeAssigneeReturn: xsd:boolean)
+     ns0:removeCategory(workitemURI: ns1:SubterraURI, categoryId: xsd:string)
+     ns0:removeCategoryResponse(removeCategoryReturn: xsd:boolean)
+     ns0:removeExternalLinkedRevision(workitemURI: ns1:SubterraURI, repositoryName: xsd:string, revisionId: xsd:string)
+     ns0:removeExternalLinkedRevisionResponse(removeExternalLinkedRevisionReturn: xsd:boolean)
+     ns0:removeExternallyLinkedItem(workitemURI: ns1:SubterraURI, linkedExternalWorkitemURI: xsd:string, role: ns2:EnumOptionId)
+     ns0:removeExternallyLinkedItemResponse(removeExternallyLinkedItemReturn: xsd:boolean)
+     ns0:removeHyperlink(workitemURI: ns1:SubterraURI, url: xsd:string)
+     ns0:removeHyperlinkResponse(removeHyperlinkReturn: xsd:boolean)
+     ns0:removeLinkedItem(workitemURI: ns1:SubterraURI, linkedItemURI: ns1:SubterraURI, role: ns2:EnumOptionId)
+     ns0:removeLinkedItemResponse(removeLinkedItemReturn: xsd:boolean)
+     ns0:removeLinkedRevision(workitemURI: ns1:SubterraURI, revisionId: xsd:string)
+     ns0:removeLinkedRevisionResponse(removeLinkedRevisionReturn: xsd:boolean)
+     ns0:removePlaningConstraint(workitemURI: ns1:SubterraURI, date: xsd:dateTime, constraint: ns2:EnumOptionId)
+     ns0:removePlaningConstraintResponse(removePlaningConstraintReturn: xsd:boolean)
+     ns0:resetWorkflow(workflowObjectURI: ns1:SubterraURI)
+     ns0:resetWorkflowResponse()
+     ns0:reuseDocument(sourceURI: ns1:SubterraURI, targetProjectId: xsd:string, targetLocation: ns1:Location, targetName: xsd:string, targetTitle: xsd:string, updateTitleInDocument: xsd:boolean, linkRole: ns2:EnumOptionId, derivedFields: xsd:string[])
+     ns0:reuseDocumentResponse(reuseDocumentReturn: xsd:string)
+     ns0:reuseModule(sourceURI: ns1:SubterraURI, targetProjectId: xsd:string, targetLocation: ns1:Location, targetName: xsd:string, linkRole: ns2:EnumOptionId, fields: xsd:string[], exceptFields: xsd:string[], derivedFields: xsd:string[])
+     ns0:reuseModuleResponse(reuseModuleReturn: xsd:string)
+     ns0:setCommentTags(commentURI: ns1:SubterraURI, tags: ns2:EnumOptionId[])
+     ns0:setCommentTagsResponse()
+     ns0:setCustomField(customField: ns2:CustomField)
+     ns0:setCustomFieldResponse()
+     ns0:setFieldsNull(workitemURI: ns1:SubterraURI, fields: xsd:string[])
+     ns0:setFieldsNullResponse()
+     ns0:setLocalizedWorkItemDescription(uri: ns1:SubterraURI, language: xsd:string, description: ns1:Text)
+     ns0:setLocalizedWorkItemDescriptionResponse()
+     ns0:setLocalizedWorkItemTitle(uri: ns1:SubterraURI, language: xsd:string, title: xsd:string)
+     ns0:setLocalizedWorkItemTitleResponse()
+     ns0:setResolvedComment(commentURI: ns1:SubterraURI, resolved: xsd:boolean)
+     ns0:setResolvedCommentResponse()
+     ns0:updateAttachment(workitemURI: ns1:SubterraURI, id: xsd:string, fileName: xsd:string, title: xsd:string, data: xsd:base64Binary)
+     ns0:updateAttachmentResponse()
+     ns0:updateBaseline(baseline: ns2:Baseline)
+     ns0:updateBaselineResponse()
+     ns0:updateDerivedDocument(documentURI: ns1:SubterraURI, revision: xsd:string, autoSuspect: xsd:boolean)
+     ns0:updateDerivedDocumentResponse()
+     ns0:updateDerivedModule(moduleURI: ns1:SubterraURI, revision: xsd:string)
+     ns0:updateDerivedModuleResponse()
+     ns0:updateModule(module: ns2:Module)
+     ns0:updateModuleResponse()
+     ns0:updateTitleHeadingInDocument(documentURI: ns1:SubterraURI, title: xsd:string)
+     ns0:updateTitleHeadingInDocumentResponse(updateTitleHeadingInDocumentReturn: xsd:string)
+     ns0:updateWorkItem(content: ns2:WorkItem)
+     ns0:updateWorkItemResponse()
+     
+
+Global types:
+     xsd:anyType
+     ns4:ArrayOfPlan(Plan: ns4:Plan[])
+     ns4:ArrayOfPlanRecord(PlanRecord: ns4:PlanRecord[])
+     ns4:Plan(allowedTypes: ns2:ArrayOfEnumOptionId, authorURI: ns1:SubterraURI, calculationType: ns2:EnumOptionId, capacity: xsd:float, color: xsd:string, created: xsd:dateTime, defaultEstimate: xsd:float, description: ns1:Text, dueDate: xsd:date, estimationField: xsd:string, finishedOn: xsd:dateTime, homePageContent: ns1:Text, id: xsd:string, isTemplate: xsd:boolean, location: ns1:Location, name: xsd:string, parent: ns4:Plan, previousTimeSpent: ns1:duration, prioritizationField: xsd:string, projectURI: ns1:SubterraURI, projectSpanURIs: ns1:ArrayOfSubterraURI, records: ns4:ArrayOfPlanRecord, sortOrder: xsd:int, startDate: xsd:date, startedOn: xsd:dateTime, status: ns2:EnumOptionId, templateURI: ns1:SubterraURI, updated: xsd:dateTime, useReportFromTemplate: xsd:boolean, customFields: ns2:ArrayOfCustom, uri: ns1:SubterraURI, unresolvable: xsd:boolean)
+     ns4:PlanRecord(item: ns2:WorkItem)
+     ns3:ArrayOfUser(User: ns3:User[])
+     ns3:Project(active: xsd:boolean, description: ns1:Text, finish: xsd:date, id: xsd:string, lead: ns3:User, location: ns1:Location, lockWorkRecordsDate: xsd:date, name: xsd:string, projectGroupURI: ns1:SubterraURI, start: xsd:date, trackerPrefix: xsd:string, uri: ns1:SubterraURI, unresolvable: xsd:boolean)
+     ns3:User(description: ns1:Text, disabledNotifications: xsd:boolean, email: xsd:string, homePageContent: ns1:Text, id: xsd:string, name: xsd:string, voteURIs: ns1:ArrayOfSubterraURI, watcheURIs: ns1:ArrayOfSubterraURI, uri: ns1:SubterraURI, unresolvable: xsd:boolean)
+     ns2:Activity(activityCustomValues: ns5:ArrayOf_tns3_ActivityCustomValueEntry, comments: ns5:ArrayOf_tns3_ActivityComment, contextId: ns2:ContextId, globalId: xsd:string, id: xsd:string, info: ns1:Text, prefix: xsd:string, resourceLocations: ns5:ArrayOf_tns2_Location, sourceId: xsd:string, timestamp: xsd:dateTime, type: xsd:string, userId: xsd:string)
+     ns2:ActivityComment(text: ns1:Text, timeStamp: xsd:dateTime, userId: xsd:string)
+     ns2:ActivityCustomValue(values: ns5:ArrayOf_xsd_string)
+     ns2:ActivityCustomValueEntry(customValues: ns2:ActivityCustomValue, key: xsd:string)
+     ns2:ActivitySource(id: xsd:string, prefix: xsd:string, types: ns5:ArrayOf_xsd_string)
+     ns2:Approval(secureApprovalCommentId: xsd:string, status: ns2:EnumOptionId, user: ns3:User)
+     ns2:ArrayOfApproval(Approval: ns2:Approval[])
+     ns2:ArrayOfAttachment(Attachment: ns2:Attachment[])
+     ns2:ArrayOfCategory(Category: ns2:Category[])
+     ns2:ArrayOfComment(Comment: ns2:Comment[])
+     ns2:ArrayOfCustom(Custom: ns2:Custom[])
+     ns2:ArrayOfEnumOptionId(EnumOptionId: ns2:EnumOptionId[])
+     ns2:ArrayOfExternallyLinkedWorkItem(ExternallyLinkedWorkItem: ns2:ExternallyLinkedWorkItem[])
+     ns2:ArrayOfHyperlink(Hyperlink: ns2:Hyperlink[])
+     ns2:ArrayOfLinkedOslcResource(LinkedOslcResource: ns2:LinkedOslcResource[])
+     ns2:ArrayOfLinkedWorkItem(LinkedWorkItem: ns2:LinkedWorkItem[])
+     ns2:ArrayOfModuleComment(ModuleComment: ns2:ModuleComment[])
+     ns2:ArrayOfPlanningConstraint(PlanningConstraint: ns2:PlanningConstraint[])
+     ns2:ArrayOfPriorityOptionId(PriorityOptionId: ns2:PriorityOptionId[])
+     ns2:ArrayOfWikiPageAttachment(WikiPageAttachment: ns2:WikiPageAttachment[])
+     ns2:ArrayOfWorkRecord(WorkRecord: ns2:WorkRecord[])
+     ns2:Attachment(author: ns3:User, fileName: xsd:string, id: xsd:string, length: xsd:long, title: xsd:string, updated: xsd:dateTime, url: xsd:string, uri: ns1:SubterraURI, unresolvable: xsd:boolean)
+     ns2:Baseline(author: ns3:User, baseRevision: xsd:string, description: xsd:string, id: xsd:string, name: xsd:string, project: ns3:Project, uri: ns1:SubterraURI, unresolvable: xsd:boolean)
+     ns2:Category(description: ns1:Text, id: xsd:string, name: xsd:string, uri: ns1:SubterraURI, unresolvable: xsd:boolean)
+     ns2:Change(creation: xsd:boolean, date: xsd:dateTime, diffs: ns5:ArrayOf_tns3_FieldDiff, empty: xsd:boolean, invalid: xsd:boolean, revision: xsd:string, user: xsd:string)
+     ns2:Comment(author: ns3:User, childCommentURIs: ns1:ArrayOfSubterraURI, created: xsd:dateTime, id: xsd:string, parentCommentURI: ns1:SubterraURI, resolved: xsd:boolean, tags: ns2:ArrayOfEnumOptionId, text: ns1:Text, title: xsd:string, visibleTo: ns1:ArrayOfstring, uri: ns1:SubterraURI, unresolvable: xsd:boolean)
+     ns2:ContextId
+     ns2:Custom(key: xsd:string, value: xsd:anyType)
+     ns2:CustomField(key: xsd:string, parentItemURI: xsd:string, value: xsd:anyType)
+     ns2:CustomFieldType(defaultValue: None, dependsOn: xsd:string, description: xsd:string, id: xsd:string, multi: xsd:boolean, name: xsd:string, required: xsd:boolean, type: xsd:QName)
+     ns2:EnumCustomFieldType(defaultValue: None, dependsOn: xsd:string, description: xsd:string, id: xsd:string, multi: xsd:boolean, name: xsd:string, required: xsd:boolean, type: xsd:QName, enumId: xsd:string)
+     ns2:EnumOption(default: xsd:boolean, enumId: xsd:string, hidden: xsd:boolean, id: xsd:string, name: xsd:string, phantom: xsd:boolean, properties: ns1:Properties, sequenceNumber: xsd:int)
+     ns2:EnumOptionId(id: xsd:string)
+     ns2:ExternallyLinkedWorkItem(role: ns2:EnumOptionId, workItemURI: xsd:string)
+     ns2:FieldDiff(added: ns5:ArrayOf_xsd_anyType, after: None, before: None, collection: xsd:boolean, fieldName: xsd:string, removed: ns5:ArrayOf_xsd_anyType)
+     ns2:Folder(name: xsd:string, projectURI: ns1:SubterraURI, title: xsd:string, titleOrName: xsd:string)
+     ns2:Hyperlink(role: ns2:EnumOptionId, uri: xsd:string)
+     ns2:ImportedComment(author: xsd:string, created: xsd:dateTime, initials: xsd:string)
+     ns2:LanguageDefinition(id: xsd:string, label: xsd:string)
+     ns2:LinkedOslcResource(label: xsd:string, role: ns2:EnumOptionId, uri: xsd:string)
+     ns2:LinkedResource(branch: xsd:string, category: xsd:string, element: xsd:string, elementPosition: xsd:string, fileName: xsd:string, linkPosition: xsd:string, location: xsd:string, message: xsd:string, objectId: xsd:string, objectRevision: xsd:string, projectId: xsd:string, repositoryId: xsd:string, role: xsd:string)
+     ns2:LinkedWorkItem(revision: xsd:string, role: ns2:EnumOptionId, suspect: xsd:boolean, workItemURI: ns1:SubterraURI)
+     ns2:Module(allowedWITypes: ns2:ArrayOfEnumOptionId, areLinksFromParentToChild: xsd:boolean, author: ns3:User, autoSuspect: xsd:boolean, branchedFrom: ns2:Module, branchedWithQuery: xsd:string, comments: ns2:ArrayOfModuleComment, created: xsd:dateTime, derivedFields: ns1:ArrayOfstring, derivedFromURI: ns1:SubterraURI, derivedFromLinkRole: ns2:EnumOptionId, headingSidebarFields: xsd:string, homePageContent: ns1:Text, id: xsd:string, linkedOslcResources: ns2:ArrayOfLinkedOslcResource, location: ns1:Location, moduleAbsoluteLocation: ns1:Location, moduleFolder: xsd:string, moduleLocation: ns1:Location, moduleName: xsd:string, project: ns3:Project, status: ns2:EnumOptionId, structureLinkRole: ns2:EnumOptionId, title: xsd:string, type: ns2:EnumOptionId, updated: xsd:dateTime, updatedBy: ns3:User, usesOutlineNumbering: xsd:boolean, variantURI: ns1:SubterraURI, customFields: ns2:ArrayOfCustom, uri: ns1:SubterraURI, unresolvable: xsd:boolean)
+     ns2:ModuleComment(author: ns3:User, childCommentURIs: ns1:ArrayOfSubterraURI, created: xsd:dateTime, id: xsd:string, importedComment: ns2:ImportedComment, parentCommentURI: ns1:SubterraURI, referredWorkItemURI: ns1:SubterraURI, resolved: xsd:boolean, tags: ns2:ArrayOfEnumOptionId, text: ns1:Text, uri: ns1:SubterraURI, unresolvable: xsd:boolean)
+     ns2:PlanningConstraint(constraint: ns2:EnumOptionId, date: xsd:dateTime)
+     ns2:PriorityOpt(default: xsd:boolean, enumId: xsd:string, hidden: xsd:boolean, id: xsd:string, name: xsd:string, phantom: xsd:boolean, properties: ns1:Properties, sequenceNumber: xsd:int, float: xsd:float)
+     ns2:PriorityOptionId(id: xsd:string)
+     ns2:TimePoint(closed: xsd:boolean, description: ns1:Text, earliestPlannedStart: xsd:date, id: xsd:string, name: xsd:string, time: xsd:date, uri: ns1:SubterraURI, unresolvable: xsd:boolean)
+     ns2:WikiPage(attachments: ns2:ArrayOfWikiPageAttachment, author: ns3:User, created: xsd:dateTime, homePageContent: ns1:Text, id: xsd:string, linkedPageURIs: ns1:ArrayOfSubterraURI, location: ns1:Location, pageLocation: ns1:Location, pageName: xsd:string, project: ns3:Project, spaceId: xsd:string, title: xsd:string, type: xsd:string, updated: xsd:dateTime, updatedBy: ns3:User, uri: ns1:SubterraURI, unresolvable: xsd:boolean)
+     ns2:WikiPageAttachment(author: ns3:User, fileName: xsd:string, id: xsd:string, length: xsd:long, title: xsd:string, updated: xsd:dateTime, url: xsd:string, uri: ns1:SubterraURI, unresolvable: xsd:boolean)
+     ns2:WorkItem(approvals: ns2:ArrayOfApproval, assignee: ns3:ArrayOfUser, attachments: ns2:ArrayOfAttachment, author: ns3:User, categories: ns2:ArrayOfCategory, comments: ns2:ArrayOfComment, created: xsd:dateTime, description: ns1:Text, dueDate: xsd:date, externallyLinkedWorkItems: ns2:ArrayOfExternallyLinkedWorkItem, hyperlinks: ns2:ArrayOfHyperlink, id: xsd:string, initialEstimate: ns1:duration, linkedOslcResources: ns2:ArrayOfLinkedOslcResource, linkedRevisions: ns1:ArrayOfRevision, linkedRevisionsDerived: ns1:ArrayOfRevision, linkedWorkItems: ns2:ArrayOfLinkedWorkItem, linkedWorkItemsDerived: ns2:ArrayOfLinkedWorkItem, location: ns1:Location, moduleURI: ns1:SubterraURI, outlineNumber: xsd:string, plannedEnd: xsd:dateTime, plannedIn: ns4:ArrayOfPlan, plannedStart: xsd:dateTime, planningConstraints: ns2:ArrayOfPlanningConstraint, previousStatus: ns2:EnumOptionId, priority: ns2:PriorityOptionId, project: ns3:Project, remainingEstimate: ns1:duration, resolution: ns2:EnumOptionId, resolvedOn: xsd:dateTime, severity: ns2:EnumOptionId, status: ns2:EnumOptionId, timePoint: ns2:TimePoint, timeSpent: ns1:duration, title: xsd:string, type: ns2:EnumOptionId, updated: xsd:dateTime, workRecords: ns2:ArrayOfWorkRecord, customFields: ns2:ArrayOfCustom, uri: ns1:SubterraURI, unresolvable: xsd:boolean)
+     ns2:WorkRecord(comment: xsd:string, date: xsd:date, id: xsd:string, timeSpent: ns1:duration, type: ns2:EnumOptionId, user: ns3:User, uri: ns1:SubterraURI, unresolvable: xsd:boolean)
+     ns2:WorkflowAction(actionId: xsd:int, actionName: xsd:string, cleanedFeatures: ns5:ArrayOf_xsd_string, nativeActionId: xsd:string, requiredFeatures: ns5:ArrayOf_xsd_string, suggestedFeatures: ns5:ArrayOf_xsd_string, targetStatus: ns2:EnumOptionId, unavailabilityMessage: xsd:string)
+     ns5:ArrayOf_tns2_Location(item: ns1:Location[])
+     ns5:ArrayOf_tns3_ActivityComment(item: ns2:ActivityComment[])
+     ns5:ArrayOf_tns3_ActivityCustomValueEntry(item: ns2:ActivityCustomValueEntry[])
+     ns5:ArrayOf_tns3_FieldDiff(item: ns2:FieldDiff[])
+     ns5:ArrayOf_xsd_anyType(item: None[])
+     ns5:ArrayOf_xsd_string(item: xsd:string[])
+     ns1:ArrayOfRevision(Revision: ns1:Revision[])
+     ns1:ArrayOfSubterraURI(SubterraURI: ns1:SubterraURI[])
+     ns1:ArrayOfstring(string: xsd:string[])
+     ns1:Currency
+     ns1:Location
+     ns1:Properties(property: ns1:property[])
+     ns1:Revision(author: xsd:string, created: xsd:dateTime, internalCommit: xsd:boolean, linkedWorkItemURIs: ns1:ArrayOfSubterraURI, message: xsd:string, name: xsd:string, repositoryName: xsd:string, uri: ns1:SubterraURI, unresolvable: xsd:boolean)
+     ns1:SubterraURI
+     ns1:Text(type: xsd:string, content: xsd:string, contentLossy: xsd:boolean)
+     ns1:duration
+     ns1:property(key: xsd:string, value: xsd:string)
+     xsd:ENTITIES
+     xsd:ENTITY
+     xsd:ID
+     xsd:IDREF
+     xsd:IDREFS
+     xsd:NCName
+     xsd:NMTOKEN
+     xsd:NMTOKENS
+     xsd:NOTATION
+     xsd:Name
+     xsd:QName
+     xsd:anySimpleType
+     xsd:anyURI
+     xsd:base64Binary
+     xsd:boolean
+     xsd:byte
+     xsd:date
+     xsd:dateTime
+     xsd:decimal
+     xsd:double
+     xsd:duration
+     xsd:float
+     xsd:gDay
+     xsd:gMonth
+     xsd:gMonthDay
+     xsd:gYear
+     xsd:gYearMonth
+     xsd:hexBinary
+     xsd:int
+     xsd:integer
+     xsd:language
+     xsd:long
+     xsd:negativeInteger
+     xsd:nonNegativeInteger
+     xsd:nonPositiveInteger
+     xsd:normalizedString
+     xsd:positiveInteger
+     xsd:short
+     xsd:string
+     xsd:time
+     xsd:token
+     xsd:unsignedByte
+     xsd:unsignedInt
+     xsd:unsignedLong
+     xsd:unsignedShort
+
+Bindings:
+     Soap11Binding: {http://ws.polarion.com/TrackerWebService}TrackerWebServiceSoapBinding
+
+Service: TrackerWebServiceService
+     Port: TrackerWebService (Soap11Binding: {http://ws.polarion.com/TrackerWebService}TrackerWebServiceSoapBinding)
+         Operations:
+            addApprovee(workitemURI: ns1:SubterraURI, approveeId: xsd:string) -> 
+            addAssignee(workitemURI: ns1:SubterraURI, assigneeId: xsd:string) -> addAssigneeReturn: xsd:boolean
+            addCategory(workitemURI: ns1:SubterraURI, categoryId: xsd:string) -> addCategoryReturn: xsd:boolean
+            addComment(parentObjectUri: ns1:SubterraURI, title: xsd:string, content: ns1:Text) -> addCommentReturn: ns1:SubterraURI
+            addCommentToActivity(activityGlobalId: xsd:string, commentText: ns1:Text) -> 
+            addExternalLinkedRevision(workitemURI: ns1:SubterraURI, repositoryName: xsd:string, revisionId: xsd:string) -> addExternalLinkedRevisionReturn: xsd:boolean
+            addExternallyLinkedItem(workitemURI: ns1:SubterraURI, linkedExternalWorkitemURI: xsd:string, role: ns2:EnumOptionId) -> addExternallyLinkedItemReturn: xsd:boolean
+            addHyperlink(workitemURI: ns1:SubterraURI, url: xsd:string, role: ns2:EnumOptionId) -> addHyperlinkReturn: xsd:boolean
+            addLinkedItem(workitemURI: ns1:SubterraURI, linkedWorkitemURI: ns1:SubterraURI, role: ns2:EnumOptionId) -> addLinkedItemReturn: xsd:boolean
+            addLinkedItemWithRev(in0: ns1:SubterraURI, in1: ns1:SubterraURI, in2: ns2:EnumOptionId, in3: xsd:string, in4: xsd:boolean) -> addLinkedItemWithRevReturn: xsd:boolean
+            addLinkedOslcItem(workitemURI: ns1:SubterraURI, linkedOslcItemURI: xsd:string, role: ns2:EnumOptionId, label: xsd:string) -> addLinkedOslcItemReturn: xsd:boolean
+            addLinkedRevision(workitemURI: ns1:SubterraURI, revisionId: xsd:string) -> addLinkedRevisionReturn: xsd:boolean
+            addPlaningContraint(workitemURI: ns1:SubterraURI, date: xsd:dateTime, constraint: ns2:EnumOptionId) -> addPlaningContraintReturn: xsd:boolean
+            canCommentActivity(activityGlobalId: xsd:string) -> canCommentActivityReturn: xsd:boolean
+            canCurrentUserAddCommentToActivity(activityGlobalId: xsd:string) -> canCurrentUserAddCommentToActivityReturn: xsd:boolean
+            createAttachment(workitemURI: ns1:SubterraURI, fileName: xsd:string, title: xsd:string, data: xsd:base64Binary) -> 
+            createBaseline(projectId: xsd:string, name: xsd:string, description: xsd:string, revision: xsd:string) -> createBaselineReturn: ns2:Baseline
+            createComment(workitemURI: ns1:SubterraURI, content: ns1:Text) -> 
+            createCommentNew(parentURI: ns1:SubterraURI, title: xsd:string, content: ns1:Text, visibleTo: xsd:string[]) -> createCommentNewReturn: ns1:SubterraURI
+            createDocument(projectId: xsd:string, location: ns1:Location, documentName: xsd:string, documentTitle: xsd:string, allowedWITypes: ns2:EnumOptionId[], structureLinkRole: ns2:EnumOptionId, homePageContent: xsd:string) -> createDocumentReturn: xsd:string
+            createDocumentComment(documentURI: ns1:SubterraURI, text: ns1:Text) -> createDocumentCommentReturn: ns1:SubterraURI
+            createDocumentCommentReferringWI(documentURI: ns1:SubterraURI, workItemURI: ns1:SubterraURI, text: ns1:Text) -> createDocumentCommentReferringWIReturn: ns1:SubterraURI
+            createDocumentCommentReply(parentURI: ns1:SubterraURI, text: ns1:Text) -> createDocumentCommentReplyReturn: ns1:SubterraURI
+            createFolder(projectId: xsd:string, parentName: xsd:string, name: xsd:string, title: xsd:string) -> createFolderReturn: ns2:Folder
+            createModule(projectId: xsd:string, location: ns1:Location, moduleName: xsd:string, allowedWITypes: ns2:EnumOptionId[], structureLinkRole: ns2:EnumOptionId, parentToChild: xsd:boolean, homePageContent: xsd:string) -> createModuleReturn: xsd:string
+            createWorkItem(content: ns2:WorkItem) -> createWorkItemReturn: xsd:string
+            createWorkItemInModule(moduleURI: ns1:SubterraURI, parentWorkItemURI: ns1:SubterraURI, workItem: ns2:WorkItem) -> createWorkItemInModuleReturn: xsd:string
+            createWorkRecord(workitemURI: ns1:SubterraURI, user: ns3:User, date: xsd:date, timeSpent: ns1:duration) -> 
+            createWorkRecordWithTypeAndComment(workitemURI: ns1:SubterraURI, user: ns3:User, date: xsd:date, type: ns2:EnumOptionId, timeSpent: ns1:duration, comment: xsd:string) -> 
+            deleteAttachment(workitemURI: ns1:SubterraURI, id: xsd:string) -> 
+            deleteBaseline(baselineURI: ns1:SubterraURI) -> 
+            deleteModule(moduleURI: ns1:SubterraURI) -> 
+            deleteWorkRecord(workitemURI: ns1:SubterraURI, workRecordURI: ns1:SubterraURI) -> 
+            doAutoSuspect(workitemURI: ns1:SubterraURI) -> 
+            doAutoassign(workitemURI: ns1:SubterraURI) -> 
+            editApproval(workitemURI: ns1:SubterraURI, approveeId: xsd:string, status: ns2:EnumOptionId) -> 
+            generateHistory(workitemURI: ns1:SubterraURI, ignoredFields: xsd:string[], fieldOrder: xsd:string[]) -> generateHistoryReturn: ns2:Change[]
+            getActivityByGlobalId(activityGlobalId: xsd:string) -> getActivityByGlobalIdReturn: ns2:Activity
+            getAllEnumOptionIdsForId(projectID: xsd:string, enumId: xsd:string) -> getAllEnumOptionIdsForIdReturn: ns2:EnumOptionId[]
+            getAllEnumOptionIdsForKey(projectID: xsd:string, key: xsd:string) -> getAllEnumOptionIdsForKeyReturn: ns2:EnumOptionId[]
+            getAllEnumOptionsForId(projectID: xsd:string, enumID: xsd:string) -> getAllEnumOptionsForIdReturn: ns2:EnumOption[]
+            getAllEnumOptionsForKey(projectID: xsd:string, key: xsd:string) -> getAllEnumOptionsForKeyReturn: ns2:EnumOption[]
+            getAllowedApprovers(workitemURI: ns1:SubterraURI) -> getAllowedApproversReturn: ns3:User[]
+            getAllowedAssignees(workitemURI: ns1:SubterraURI) -> getAllowedAssigneesReturn: ns3:User[]
+            getAvailableActions(workitemURI: ns1:SubterraURI) -> getAvailableActionsReturn: ns2:WorkflowAction[]
+            getAvailableEnumOptionIdsForId(workitemURI: ns1:SubterraURI, enumID: xsd:string) -> getAvailableEnumOptionIdsForIdReturn: ns2:EnumOptionId[]
+            getAvailableEnumOptionIdsForKey(workitemURI: ns1:SubterraURI, key: xsd:string) -> getAvailableEnumOptionIdsForKeyReturn: ns2:EnumOptionId[]
+            getBackLinkedWorkitems(workitemURI: ns1:SubterraURI) -> getBackLinkedWorkitemsReturn: ns2:LinkedWorkItem[]
+            getCategories(projectId: xsd:string) -> getCategoriesReturn: ns2:Category[]
+            getChildFolders(projectId: xsd:string, parentFolderId: xsd:string) -> getChildFoldersReturn: ns2:Folder[]
+            getCustomField(workitemURI: ns1:SubterraURI, key: xsd:string) -> getCustomFieldReturn: ns2:CustomField
+            getCustomFieldKeys(workitemURI: ns1:SubterraURI) -> getCustomFieldKeysReturn: xsd:string[]
+            getCustomFieldType(workitemURI: ns1:SubterraURI, key: xsd:string) -> getCustomFieldTypeReturn: ns2:CustomFieldType
+            getCustomFieldTypes(workitemURI: ns1:SubterraURI) -> getCustomFieldTypesReturn: ns2:CustomFieldType[]
+            getDefaultLanguageDefinition(projectId: xsd:string) -> getDefaultLanguageDefinitionReturn: ns2:LanguageDefinition
+            getDefinedCustomFieldKeys(projectID: xsd:string, typeID: xsd:string) -> getDefinedCustomFieldKeysReturn: xsd:string[]
+            getDefinedCustomFieldType(projectID: xsd:string, typeID: xsd:string, key: xsd:string) -> getDefinedCustomFieldTypeReturn: ns2:CustomFieldType
+            getDefinedCustomFieldTypes(projectID: xsd:string, typeID: xsd:string) -> getDefinedCustomFieldTypesReturn: ns2:CustomFieldType[]
+            getDocumentLocations(projectId: xsd:string) -> getDocumentLocationsReturn: ns1:Location[]
+            getDocumentSpaces(projectId: xsd:string) -> getDocumentSpacesReturn: xsd:string[]
+            getDurationHours(duration: xsd:string) -> getDurationHoursReturn: xsd:float
+            getEnumControlKeyForId(projectID: xsd:string, enumID: xsd:string) -> getEnumControlKeyForIdReturn: xsd:string
+            getEnumControlKeyForKey(projectID: xsd:string, key: xsd:string) -> getEnumControlKeyForKeyReturn: xsd:string
+            getEnumOptionFromObjectUriForId(uri: ns1:SubterraURI, enumId: xsd:string) -> getEnumOptionFromObjectUriForIdReturn: ns2:EnumOption
+            getEnumOptionFromObjectUriForKey(uri: ns1:SubterraURI, prototypeName: xsd:string, key: xsd:string) -> getEnumOptionFromObjectUriForKeyReturn: ns2:EnumOption
+            getEnumOptionWithEnumId(workitemURI: ns1:SubterraURI, enumID: xsd:string, id: ns2:EnumOptionId) -> getEnumOptionWithEnumIdReturn: ns2:EnumOption
+            getEnumOptionWithKey(workitemURI: ns1:SubterraURI, key: xsd:string, id: ns2:EnumOptionId) -> getEnumOptionWithKeyReturn: ns2:EnumOption
+            getEnumOptionsForId(workitemURI: ns1:SubterraURI, enumID: xsd:string) -> getEnumOptionsForIdReturn: ns2:EnumOption[]
+            getEnumOptionsForIdWithControl(projectID: xsd:string, enumID: xsd:string, controlValue: xsd:string) -> getEnumOptionsForIdWithControlReturn: ns2:EnumOption[]
+            getEnumOptionsForKey(workitemURI: ns1:SubterraURI, key: xsd:string) -> getEnumOptionsForKeyReturn: ns2:EnumOption[]
+            getEnumOptionsForKeyWithControl(projectID: xsd:string, key: xsd:string, controlValue: xsd:string) -> getEnumOptionsForKeyWithControlReturn: ns2:EnumOption[]
+            getFilteredEnumOptionsForKey(uri: ns1:SubterraURI, key: xsd:string, filter: xsd:string) -> getFilteredEnumOptionsForKeyReturn: ns2:EnumOption[]
+            getFolder(projectId: xsd:string, folderName: xsd:string) -> getFolderReturn: ns2:Folder
+            getFolderForURI(objectURI: ns1:SubterraURI) -> getFolderForURIReturn: ns2:Folder
+            getFolders(projectId: xsd:string) -> getFoldersReturn: ns2:Folder[]
+            getInitialWorkflowAction(workitemURI: ns1:SubterraURI) -> getInitialWorkflowActionReturn: ns2:WorkflowAction
+            getInitialWorkflowActionForProjectAndType(projectId: xsd:string, wiType: ns2:EnumOptionId) -> getInitialWorkflowActionForProjectAndTypeReturn: ns2:WorkflowAction
+            getLanguageDefinition(projectId: xsd:string, language: xsd:string) -> getLanguageDefinitionReturn: ns2:LanguageDefinition
+            getLanguageDefinitions(projectId: xsd:string) -> getLanguageDefinitionsReturn: ns2:LanguageDefinition[]
+            getLinkedResources(workitemURI: ns1:SubterraURI) -> getLinkedResourcesReturn: ns2:LinkedResource[]
+            getLocalizedWorkItemDescription(uri: ns1:SubterraURI, language: xsd:string) -> getLocalizedWorkItemDescriptionReturn: ns1:Text
+            getLocalizedWorkItemDescriptionField(projectId: xsd:string, language: xsd:string, type: ns2:EnumOptionId) -> getLocalizedWorkItemDescriptionFieldReturn: xsd:string
+            getLocalizedWorkItemTitle(uri: ns1:SubterraURI, language: xsd:string) -> getLocalizedWorkItemTitleReturn: xsd:string
+            getLocalizedWorkItemTitleField(projectId: xsd:string, language: xsd:string, type: ns2:EnumOptionId) -> getLocalizedWorkItemTitleFieldReturn: xsd:string
+            getModuleByLocation(projectId: xsd:string, location: ns1:Location) -> getModuleByLocationReturn: ns2:Module
+            getModuleByLocationWithFields(projectId: xsd:string, location: ns1:Location, fields: xsd:string[]) -> getModuleByLocationWithFieldsReturn: ns2:Module
+            getModuleByUri(uri: ns1:SubterraURI) -> getModuleByUriReturn: ns2:Module
+            getModuleByUriWithFields(uri: ns1:SubterraURI, fields: xsd:string[]) -> getModuleByUriWithFieldsReturn: ns2:Module
+            getModuleUris(projectId: xsd:string, location: ns1:Location) -> getModuleUrisReturn: xsd:string[]
+            getModuleWorkItemUris(moduleURI: ns1:SubterraURI, parentWorkItemURI: ns1:SubterraURI, deep: xsd:boolean) -> getModuleWorkItemUrisReturn: xsd:string[]
+            getModuleWorkItems(moduleURI: ns1:SubterraURI, parentWorkItemURI: ns1:SubterraURI, deep: xsd:boolean, fields: xsd:string[]) -> getModuleWorkItemsReturn: ns2:WorkItem[]
+            getModules(projectId: xsd:string, location: ns1:Location) -> getModulesReturn: ns2:Module[]
+            getModulesSubFolders(projectId: xsd:string, location: ns1:Location) -> getModulesSubFoldersReturn: ns1:Location[]
+            getModulesWithFields(projectId: xsd:string, location: ns1:Location, fields: xsd:string[]) -> getModulesWithFieldsReturn: ns2:Module[]
+            getOneDayLength() -> getOneDayLengthReturn: xsd:long
+            getRevision(repositoryName: xsd:string, revisionId: xsd:string) -> getRevisionReturn: ns1:Revision
+            getRevisionByUri(revisionURI: ns1:SubterraURI) -> getRevisionByUriReturn: ns1:Revision
+            getRevisions(in0: ns1:SubterraURI) -> getRevisionsReturn: xsd:string[]
+            getRootFolders(projectId: xsd:string) -> getRootFoldersReturn: ns2:Folder[]
+            getTimepoints(projectId: xsd:string) -> getTimepointsReturn: ns2:TimePoint[]
+            getUnavailableActions(workitemURI: ns1:SubterraURI) -> getUnavailableActionsReturn: ns2:WorkflowAction[]
+            getWikiPageByUri(uri: ns1:SubterraURI) -> getWikiPageByUriReturn: ns2:WikiPage
+            getWikiPageByUriWithFields(uri: ns1:SubterraURI, fields: xsd:string[]) -> getWikiPageByUriWithFieldsReturn: ns2:WikiPage
+            getWikiPageUris(projectId: xsd:string, spaceId: xsd:string) -> getWikiPageUrisReturn: xsd:string[]
+            getWikiPages(projectId: xsd:string, spaceId: xsd:string) -> getWikiPagesReturn: ns2:WikiPage[]
+            getWikiPagesWithFields(projectId: xsd:string, spaceId: xsd:string, fields: xsd:string[]) -> getWikiPagesWithFieldsReturn: ns2:WikiPage[]
+            getWikiSpaces(projectId: xsd:string) -> getWikiSpacesReturn: xsd:string[]
+            getWorkItemById(projectId: xsd:string, workitemId: xsd:string) -> getWorkItemByIdReturn: ns2:WorkItem
+            getWorkItemByIdsWithFields(projectId: xsd:string, workitemId: xsd:string, keys: xsd:string[]) -> getWorkItemByIdsWithFieldsReturn: ns2:WorkItem
+            getWorkItemByUri(uri: ns1:SubterraURI) -> getWorkItemByUriReturn: ns2:WorkItem
+            getWorkItemByUriInRevision(uri: ns1:SubterraURI, revision: xsd:string) -> getWorkItemByUriInRevisionReturn: ns2:WorkItem
+            getWorkItemByUriInRevisionWithFields(uri: ns1:SubterraURI, revision: xsd:string, keys: xsd:string[]) -> getWorkItemByUriInRevisionWithFieldsReturn: ns2:WorkItem
+            getWorkItemByUriWithFields(uri: ns1:SubterraURI, keys: xsd:string[]) -> getWorkItemByUriWithFieldsReturn: ns2:WorkItem
+            getWorkItemsCount(query: xsd:string) -> getWorkItemsCountReturn: xsd:int
+            getWorkItemsLinkedToRevision(revisionURI: ns1:SubterraURI) -> getWorkItemsLinkedToRevisionReturn: ns2:WorkItem[]
+            getWorkItemsLinkedToRevisionWithFields(revisionURI: ns1:SubterraURI, keys: xsd:string[]) -> getWorkItemsLinkedToRevisionWithFieldsReturn: ns2:WorkItem[]
+            isHistoryAvailable() -> isHistoryAvailableReturn: xsd:boolean
+            isResolvedComment(commentURI: ns1:SubterraURI) -> isResolvedCommentReturn: xsd:boolean
+            listActivitySources() -> listActivitySourcesReturn: ns2:ActivitySource[]
+            listAllActivities(query: xsd:string, count: xsd:int) -> listAllActivitiesReturn: ns2:Activity[]
+            listAllActivitiesGlobalIds(query: xsd:string, count: xsd:int) -> listAllActivitiesGlobalIdsReturn: xsd:string[]
+            listGroupActivities(uri: ns1:SubterraURI, query: xsd:string, count: xsd:int) -> listGroupActivitiesReturn: ns2:Activity[]
+            listGroupActivitiesGlobalIds(uri: ns1:SubterraURI, query: xsd:string, count: xsd:int) -> listGroupActivitiesGlobalIdsReturn: xsd:string[]
+            listProjectActivities(projectId: xsd:string, query: xsd:string, count: xsd:int) -> listProjectActivitiesReturn: ns2:Activity[]
+            listProjectActivitiesGlobalIds(projectId: xsd:string, query: xsd:string, count: xsd:int) -> listProjectActivitiesGlobalIdsReturn: xsd:string[]
+            moveWorkItemToDocument(workItemURI: ns1:SubterraURI, documentURI: ns1:SubterraURI, parentWorkItemURI: ns1:SubterraURI, position: xsd:int, retainDocumentFlow: xsd:boolean) -> 
+            moveWorkItemToModule(workItemURI: ns1:SubterraURI, moduleURI: ns1:SubterraURI, parentWorkItemURI: ns1:SubterraURI, position: xsd:int) -> 
+            performWorkflowAction(workitemURI: ns1:SubterraURI, actionId: xsd:int) -> 
+            queryBaselines(query: xsd:string, sort: xsd:string) -> queryBaselinesReturn: ns2:Baseline[]
+            queryModuleUris(query: xsd:string, sort: xsd:string, resultsLimit: xsd:int) -> queryModuleUrisReturn: xsd:string[]
+            queryModuleUrisBySQL(sqlQuery: xsd:string) -> queryModuleUrisBySQLReturn: xsd:string[]
+            queryModuleUrisInBaseline(query: xsd:string, sort: xsd:string, baselineRevision: xsd:string, resultsLimit: xsd:int) -> queryModuleUrisInBaselineReturn: xsd:string[]
+            queryModuleUrisInBaselineBySQL(sqlQuery: xsd:string, baselineRevision: xsd:string) -> queryModuleUrisInBaselineBySQLReturn: xsd:string[]
+            queryModules(query: xsd:string, sort: xsd:string, fields: xsd:string[], resultsLimit: xsd:int) -> queryModulesReturn: ns2:Module[]
+            queryModulesBySQL(sqlQuery: xsd:string, fields: xsd:string[]) -> queryModulesBySQLReturn: ns2:Module[]
+            queryModulesInBaseline(query: xsd:string, sort: xsd:string, baselineRevision: xsd:string, fields: xsd:string[], resultsLimit: xsd:int) -> queryModulesInBaselineReturn: ns2:Module[]
+            queryModulesInBaselineBySQL(sqlQuery: xsd:string, baselineRevision: xsd:string, fields: xsd:string[]) -> queryModulesInBaselineBySQLReturn: ns2:Module[]
+            queryRevisionUris(query: xsd:string, sort: xsd:string, includeInternal: xsd:boolean) -> queryRevisionUrisReturn: xsd:string[]
+            queryRevisions(query: xsd:string, sort: xsd:string, fields: xsd:string[]) -> queryRevisionsReturn: ns1:Revision[]
+            queryWikiPageUris(query: xsd:string, sort: xsd:string, resultsLimit: xsd:int) -> queryWikiPageUrisReturn: xsd:string[]
+            queryWikiPageUrisBySQL(sqlQuery: xsd:string) -> queryWikiPageUrisBySQLReturn: xsd:string[]
+            queryWikiPageUrisInBaseline(query: xsd:string, sort: xsd:string, baselineRevision: xsd:string, resultsLimit: xsd:int) -> queryWikiPageUrisInBaselineReturn: xsd:string[]
+            queryWikiPageUrisInBaselineBySQL(sqlQuery: xsd:string, baselineRevision: xsd:string) -> queryWikiPageUrisInBaselineBySQLReturn: xsd:string[]
+            queryWikiPages(query: xsd:string, sort: xsd:string, fields: xsd:string[], resultsLimit: xsd:int) -> queryWikiPagesReturn: ns2:WikiPage[]
+            queryWikiPagesBySQL(sqlQuery: xsd:string, fields: xsd:string[]) -> queryWikiPagesBySQLReturn: ns2:WikiPage[]
+            queryWikiPagesInBaseline(query: xsd:string, sort: xsd:string, baselineRevision: xsd:string, fields: xsd:string[], resultsLimit: xsd:int) -> queryWikiPagesInBaselineReturn: ns2:WikiPage[]
+            queryWikiPagesInBaselineBySQL(sqlQuery: xsd:string, baselineRevision: xsd:string, fields: xsd:string[]) -> queryWikiPagesInBaselineBySQLReturn: ns2:WikiPage[]
+            queryWorkItemUris(query: xsd:string, sort: xsd:string) -> queryWorkItemUrisReturn: xsd:string[]
+            queryWorkItemUrisBySQL(sqlQuery: xsd:string) -> queryWorkItemUrisBySQLReturn: xsd:string[]
+            queryWorkItemUrisInBaseline(query: xsd:string, sort: xsd:string, baselineRevision: xsd:string) -> queryWorkItemUrisInBaselineReturn: xsd:string[]
+            queryWorkItemUrisInBaselineBySQL(sqlQuery: xsd:string, baselineRevision: xsd:string) -> queryWorkItemUrisInBaselineBySQLReturn: xsd:string[]
+            queryWorkItemUrisInBaselineLimited(query: xsd:string, sort: xsd:string, baselineRevision: xsd:string, resultsLimit: xsd:int) -> queryWorkItemUrisInBaselineLimitedReturn: xsd:string[]
+            queryWorkItemUrisLimited(query: xsd:string, sort: xsd:string, resultsLimit: xsd:int) -> queryWorkItemUrisLimitedReturn: xsd:string[]
+            queryWorkItems(query: xsd:string, sort: xsd:string, fields: xsd:string[]) -> queryWorkItemsReturn: ns2:WorkItem[]
+            queryWorkItemsBySQL(sqlQuery: xsd:string, fields: xsd:string[]) -> queryWorkItemsBySQLReturn: ns2:WorkItem[]
+            queryWorkItemsInBaseline(query: xsd:string, sort: xsd:string, baselineRevision: xsd:string, fields: xsd:string[]) -> queryWorkItemsInBaselineReturn: ns2:WorkItem[]
+            queryWorkItemsInBaselineBySQL(sqlQuery: xsd:string, baselineRevision: xsd:string, fields: xsd:string[]) -> queryWorkItemsInBaselineBySQLReturn: ns2:WorkItem[]
+            queryWorkItemsInBaselineLimited(query: xsd:string, sort: xsd:string, baselineRevision: xsd:string, fields: xsd:string[], resultsLimit: xsd:int) -> queryWorkItemsInBaselineLimitedReturn: ns2:WorkItem[]
+            queryWorkItemsInRevision(query: xsd:string, sort: xsd:string, revision: xsd:string, fields: xsd:string[]) -> queryWorkItemsInRevisionReturn: ns2:WorkItem[]
+            queryWorkItemsInRevisionLimited(query: xsd:string, sort: xsd:string, revision: xsd:string, fields: xsd:string[], resultsLimit: xsd:int) -> queryWorkItemsInRevisionLimitedReturn: ns2:WorkItem[]
+            queryWorkItemsLimited(query: xsd:string, sort: xsd:string, fields: xsd:string[], resultsLimit: xsd:int) -> queryWorkItemsLimitedReturn: ns2:WorkItem[]
+            removeApprovee(workitemURI: ns1:SubterraURI, approveeId: xsd:string) -> 
+            removeAssignee(workitemURI: ns1:SubterraURI, assigneeId: xsd:string) -> removeAssigneeReturn: xsd:boolean
+            removeCategory(workitemURI: ns1:SubterraURI, categoryId: xsd:string) -> removeCategoryReturn: xsd:boolean
+            removeExternalLinkedRevision(workitemURI: ns1:SubterraURI, repositoryName: xsd:string, revisionId: xsd:string) -> removeExternalLinkedRevisionReturn: xsd:boolean
+            removeExternallyLinkedItem(workitemURI: ns1:SubterraURI, linkedExternalWorkitemURI: xsd:string, role: ns2:EnumOptionId) -> removeExternallyLinkedItemReturn: xsd:boolean
+            removeHyperlink(workitemURI: ns1:SubterraURI, url: xsd:string) -> removeHyperlinkReturn: xsd:boolean
+            removeLinkedItem(workitemURI: ns1:SubterraURI, linkedItemURI: ns1:SubterraURI, role: ns2:EnumOptionId) -> removeLinkedItemReturn: xsd:boolean
+            removeLinkedRevision(workitemURI: ns1:SubterraURI, revisionId: xsd:string) -> removeLinkedRevisionReturn: xsd:boolean
+            removePlaningConstraint(workitemURI: ns1:SubterraURI, date: xsd:dateTime, constraint: ns2:EnumOptionId) -> removePlaningConstraintReturn: xsd:boolean
+            resetWorkflow(workflowObjectURI: ns1:SubterraURI) -> 
+            reuseDocument(sourceURI: ns1:SubterraURI, targetProjectId: xsd:string, targetLocation: ns1:Location, targetName: xsd:string, targetTitle: xsd:string, updateTitleInDocument: xsd:boolean, linkRole: ns2:EnumOptionId, derivedFields: xsd:string[]) -> reuseDocumentReturn: xsd:string
+            reuseModule(sourceURI: ns1:SubterraURI, targetProjectId: xsd:string, targetLocation: ns1:Location, targetName: xsd:string, linkRole: ns2:EnumOptionId, fields: xsd:string[], exceptFields: xsd:string[], derivedFields: xsd:string[]) -> reuseModuleReturn: xsd:string
+            setCommentTags(commentURI: ns1:SubterraURI, tags: ns2:EnumOptionId[]) -> 
+            setCustomField(customField: ns2:CustomField) -> 
+            setFieldsNull(workitemURI: ns1:SubterraURI, fields: xsd:string[]) -> 
+            setLocalizedWorkItemDescription(uri: ns1:SubterraURI, language: xsd:string, description: ns1:Text) -> 
+            setLocalizedWorkItemTitle(uri: ns1:SubterraURI, language: xsd:string, title: xsd:string) -> 
+            setResolvedComment(commentURI: ns1:SubterraURI, resolved: xsd:boolean) -> 
+            updateAttachment(workitemURI: ns1:SubterraURI, id: xsd:string, fileName: xsd:string, title: xsd:string, data: xsd:base64Binary) -> 
+            updateBaseline(baseline: ns2:Baseline) -> 
+            updateDerivedDocument(documentURI: ns1:SubterraURI, revision: xsd:string, autoSuspect: xsd:boolean) -> 
+            updateDerivedModule(moduleURI: ns1:SubterraURI, revision: xsd:string) -> 
+            updateModule(module: ns2:Module) -> 
+            updateTitleHeadingInDocument(documentURI: ns1:SubterraURI, title: xsd:string) -> updateTitleHeadingInDocumentReturn: xsd:string
+            updateWorkItem(content: ns2:WorkItem) -> 
+
