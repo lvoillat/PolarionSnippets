@@ -6,13 +6,20 @@ var JavaPackages = new JavaImporter(
        com.polarion.platform.core, 
        com.polarion.platform.context, 
        com.polarion.platform.jobs,
-       com.polarion.platform.persistence.model
+       com.polarion.platform.persistence.model,
+       com.polarion.platform.internal.security
 ); 
  
 with( JavaPackages ) {
        function log(str) {
               out.write(str + "\n");
               out.flush();
+       }
+
+       function getAPIToken(userKey) {
+              var vault = UserAccountVault.getInstance();
+              var cred = vault.getCredentialsForKey(userKey);
+              return cred.getPassword(); //cred.getUser()
        }
 
        var outFile = new FileWriter("./logs/main/gitlabbranch.log", true); 
@@ -22,8 +29,9 @@ with( JavaPackages ) {
        var gitlabURL = arguments.getAsString("gitlabURL"); //url of gitlab server
        var id = arguments.getAsString("projectid"); //id of the gitlab project
        var cfname = arguments.getAsString("branchfield"); //id of the custom field that contains the branch name
-       var token = ""; //gitlab API token
+       var userKey = arguments.getAsString("userKey"); //id of the user account vault key that stores the API token
        var branchname = wi.getCustomField(cfname);
+       var token = getAPIToken(userKey);
        var urlstring = gitlabURL + "/api/v4/projects/" + id + "/repository/branches?branch=" + branchname + "&ref=master"  //the branch is made from master
        log(urlstring);
        var url = new URL(urlstring);
