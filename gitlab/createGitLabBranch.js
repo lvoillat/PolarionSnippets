@@ -1,3 +1,17 @@
+/**
+This workflow function create a new branch on a specified Gitlab project.
+The script takes 4 arguments:
+* gitlabURL -  the url of the GitLab instance
+* projectid -  the numeric ID of the GitLab projct
+* branchfield -  the id of the custom field to fill to specify the branch name - this is a string custom field 
+                     and must be defined for the workitem typen that uses this function
+* userKey - the key of a User Account Valut entry that must be created to store the GitLab API key -  username can be anything, the password must be the token
+
+The script creates the branch from the master.
+A log is written in /opt/polarion/data/logs/main/gitlabbranch.log or in c:\polarion\data\logs\main\gitlabbranch.log
+
+TODO: add some error checking :)
+*/
 var JavaPackages = new JavaImporter(
        java.io,  
        java.util,
@@ -29,8 +43,8 @@ with( JavaPackages ) {
        var gitlabURL = arguments.getAsString("gitlabURL"); //url of gitlab server
        var id = arguments.getAsString("projectid"); //id of the gitlab project
        var cfname = arguments.getAsString("branchfield"); //id of the custom field that contains the branch name
-       var userKey = arguments.getAsString("userKey"); //id of the user account vault key that stores the API token
        var branchname = wi.getCustomField(cfname);
+       var userKey = arguments.getAsString("userKey"); //id of the user account vault key that stores the API token
        var token = getAPIToken(userKey);
        var urlstring = gitlabURL + "/api/v4/projects/" + id + "/repository/branches?branch=" + branchname + "&ref=master"  //the branch is made from master
        log(urlstring);

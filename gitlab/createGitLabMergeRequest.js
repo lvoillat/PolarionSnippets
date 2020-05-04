@@ -1,3 +1,17 @@
+/**
+This workflow function create a merge request on a specified Gitlab project.
+The script takes 4 arguments:
+* gitlabURL -  the url of the GitLab instance
+* projectid -  the numeric ID of the GitLab projct
+* branchfield -  the id of the custom field to fill to specify the branch name for which the merge request is created - this is a string custom field 
+                     and must be defined for the workitem typen that uses this function
+* userKey - the key of a User Account Valut entry that must be created to store the GitLab API key -  username can be anything, the password must be the token
+
+The title of the merge request is the workitem id followed by the workitem title
+A log is written in /opt/polarion/data/logs/main/gitlabmergerequest.log or in c:\polarion\data\logs\main\gitlabmergerequest.log
+
+TODO: add some error checking :)
+*/
 var JavaPackages = new JavaImporter(
        java.io,  
        java.util,
