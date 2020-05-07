@@ -46,7 +46,7 @@ with( JavaPackages ) {
        var userKey = arguments.getAsString("userKey"); //id of the user account vault key that stores the API token
        var token = getAPIToken(userKey);
        var branchname = wi.getCustomField(cfname);
-       var title = wi.getId() + "_" + wi.getTitle().replace(" ", "_");
+       var title = wi.getId() + "_" + wi.getTitle().replaceAll(" ", "_");
        var urlstring =" http://gitlab/api/v4/projects/" + id + "/merge_requests?source_branch=" + branchname + "&target_branch=master&title=" + title;
        log(urlstring);
        var url = new URL(urlstring);
