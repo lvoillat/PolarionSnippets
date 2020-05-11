@@ -7,7 +7,7 @@ The script takes 4 arguments:
                      and must be defined for the workitem typen that uses this function
 * userKey - the key of a User Account Valut entry that must be created to store the GitLab API key -  username can be anything, the password must be the token
 
-The title of the merge request is the workitem id followed by the workitem title
+The title of the merge request is the workitem id followed by the workitem getTitle
 A log is written in /opt/polarion/data/logs/main/gitlabmergerequest.log or in c:\polarion\data\logs\main\gitlabmergerequest.log
 
 TODO: add some error checking :)
@@ -47,7 +47,7 @@ with( JavaPackages ) {
        var token = getAPIToken(userKey);
        var branchname = wi.getCustomField(cfname);
        var title = wi.getId() + "_" + wi.getTitle().replaceAll(" ", "_");
-       var urlstring =" http://gitlab/api/v4/projects/" + id + "/merge_requests?source_branch=" + branchname + "&target_branch=master&title=" + title;
+       var urlstring = gitlabURL + "api/v4/projects/" + id + "/merge_requests?source_branch=" + branchname + "&target_branch=master&title=" + title;
        log(urlstring);
        var url = new URL(urlstring);
        var conn = url.openConnection();
