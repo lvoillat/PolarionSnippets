@@ -13,9 +13,11 @@ A log is written in /opt/polarion/data/logs/main/gitlabmergerequest.log or in c:
 TODO: add some error checking :)
 */
 var JavaPackages = new JavaImporter(
+       java.lang,
        java.io,  
        java.util,
        java.net,
+       java.util.regex,
        com.polarion.platform, 
        com.polarion.platform.core, 
        com.polarion.platform.context, 
@@ -36,6 +38,31 @@ with( JavaPackages ) {
               return cred.getPassword(); //cred.getUser()
        }
 
+       function getResponseBody(conn) {
+              var br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
+              var sb = new StringBuilder();
+              var output;
+              while ((output = br.readLine()) != null) {
+                     sb.append(output);
+              }
+              return sb.toString();
+       }
+
+       function getMergeRequestId(input) {
+              var pattern = ".*\"iid\":([0-9]+),.*";
+              var r = Pattern.compile(pattern);
+              var matcher = r.matcher(input);
+              if (matcher.find()) {
+                     log(matcher.group(0));
+                     log(matcher.group(1));
+                     return matcher.group(1);
+              }
+              else {
+                     log("No matches");
+              }
+       }
+
+
        var outFile = new FileWriter("./logs/main/gitlabmergerequest.log", true); 
        var out = new BufferedWriter(outFile);
 
@@ -47,7 +74,7 @@ with( JavaPackages ) {
        var token = getAPIToken(userKey);
        var branchname = wi.getCustomField(cfname);
        var title = wi.getId() + "_" + wi.getTitle().replaceAll(" ", "_");
-       var urlstring = gitlabURL + "api/v4/projects/" + id + "/merge_requests?source_branch=" + branchname + "&target_branch=master&title=" + title;
+       var urlstring = gitlabURL + "/api/v4/projects/" + id + "/merge_requests?source_branch=" + branchname + "&target_branch=master&title=" + title;
        log(urlstring);
        var url = new URL(urlstring);
        var conn = url.openConnection();
@@ -55,4 +82,9 @@ with( JavaPackages ) {
        conn.setRequestProperty("PRIVATE-TOKEN", token);
        var response =  conn.getResponseCode();
        log("Response: " + response);
+       var body = getResponseBody(conn);
+       log("Body: " + body);
+       var iid = getMergeRequestId(body);
+       log("Iid: " + iid);
+       
 }
