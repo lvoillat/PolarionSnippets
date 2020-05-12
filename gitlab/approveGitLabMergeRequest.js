@@ -58,7 +58,9 @@ with( JavaPackages ) {
        log("[mergerequestfield] " + mergerequestfield);
        var mergerequestid = wi.getCustomField(mergerequestfield);
        log("[mergerequestid] " + mergerequestid);
-       var urlstring = gitlabURL + "/api/v4/projects/" + id + "/merge_requests/" + mergerequestid + "/merge";
+       var commit_message = "Merge for " +  wi.getId();
+       commit_message = commit_message.replaceAll(" ", "+");
+       var urlstring = gitlabURL + "/api/v4/projects/" + id + "/merge_requests/" + mergerequestid + "/merge?merge_commit_message=" + commit_message;
        log(urlstring);
        var url = new URL(urlstring);
        var conn = url.openConnection();
