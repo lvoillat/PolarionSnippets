@@ -5,6 +5,7 @@ The script takes 4 arguments:
 * projectid -  the numeric ID of the GitLab projct
 * branchfield -  the id of the custom field to fill to specify the branch name for which the merge request is created - this is a string custom field 
                      and must be defined for the workitem typen that uses this function
+* mergerequestfield -  the id of the custom field that contains the merge request id
 * userKey - the key of a User Account Valut entry that must be created to store the GitLab API key -  username can be anything, the password must be the token
 
 The title of the merge request is the workitem id followed by the workitem getTitle
@@ -71,6 +72,7 @@ with( JavaPackages ) {
        var id = arguments.getAsString("projectid"); //id of the gitlab project
        var cfname = arguments.getAsString("branchfield"); //id of the custom field that contains the branch name
        var userKey = arguments.getAsString("userKey"); //id of the user account vault key that stores the API token
+       var mergerequestfield = arguments.getAsString("mergerequestidfield");
        var token = getAPIToken(userKey);
        var branchname = wi.getCustomField(cfname);
        var title = wi.getId() + "_" + wi.getTitle().replaceAll(" ", "_");
@@ -87,5 +89,5 @@ with( JavaPackages ) {
        var iid = getMergeRequestId(body);
        log("Iid: " + iid);
        
-       wi.setCustomField("mergerequestid", iid);
+       wi.setCustomField(mergerequestfield, iid);
 }
