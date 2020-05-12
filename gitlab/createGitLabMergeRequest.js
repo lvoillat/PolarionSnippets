@@ -87,4 +87,5 @@ with( JavaPackages ) {
        var iid = getMergeRequestId(body);
        log("Iid: " + iid);
        
+       wi.setCustomField("mergerequestid", iid);
 }
