@@ -50,33 +50,16 @@ with( JavaPackages ) {
               return sb.toString();
        }
 
-       function getMergeRequestId(input) {
-              var pattern = ".*\"iid\":([0-9]+),.*";
-              var r = Pattern.compile(pattern);
-              var matcher = r.matcher(input);
-              if (matcher.find()) {
-                     log(matcher.group(0));
-                     log(matcher.group(1));
-                     return matcher.group(1);
-              }
-              else {
-                     log("No matches");
-              }
-       }
-
-       function getMergeRequestState(input) {
-           var pattern = "\"state\":\"([a-z]+)\",.*";
-           var r = Pattern.compile(pattern);
-           var matcher = r.matcher(input);
-           if (matcher.find()) {
-                  log(matcher.group(0));
-                  log(matcher.group(1));
-                  return matcher.group(1);
-           }
-           else {
-                  log("No matches");
-           }
-       }
+	   function getMergeRequestId(input) {
+	       var obj = JSON.parse(input);
+	       return obj.iid;
+	   } 
+	
+	
+	   function getMergeRequestState(input) {
+	       var obj = JSON.parse(input);
+	       return obj.state;
+	   }
 
        var outFile = new FileWriter("./logs/main/gitlabmergerequest.log", true); 
        var out = new BufferedWriter(outFile);
@@ -107,6 +90,6 @@ with( JavaPackages ) {
        var state = getMergeRequestState(body); 
        log("State: " + state);
 
-       wi.setCustomField(mergerequestfield, iid);
-       wi.setCustomField(mergerequeststate, state);
+       wi.setCustomField(mergerequestfield, String.valueOf(iid));
+       wi.setCustomField(mergerequeststate, String.valueOf(state));
 }
