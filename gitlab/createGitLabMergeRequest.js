@@ -6,6 +6,7 @@ The script takes 4 arguments:
 * branchfield -  the id of the custom field to fill to specify the branch name for which the merge request is created - this is a string custom field 
                      and must be defined for the workitem typen that uses this function
 * mergerequestfield -  the id of the custom field that contains the merge request id
+* mergerequeststate -  the id of the custom field that contains the merge request state
 * userKey - the key of a User Account Valut entry that must be created to store the GitLab API key -  username can be anything, the password must be the token
 
 The title of the merge request is the workitem id followed by the workitem getTitle
@@ -63,6 +64,19 @@ with( JavaPackages ) {
               }
        }
 
+       function getMergeRequestState(input) {
+           var pattern = ".*\"state\":([0-9]+),.*";
+           var r = Pattern.compile(pattern);
+           var matcher = r.matcher(input);
+           if (matcher.find()) {
+                  log(matcher.group(0));
+                  log(matcher.group(1));
+                  return matcher.group(1);
+           }
+           else {
+                  log("No matches");
+           }
+       }
 
        var outFile = new FileWriter("./logs/main/gitlabmergerequest.log", true); 
        var out = new BufferedWriter(outFile);
@@ -73,6 +87,7 @@ with( JavaPackages ) {
        var cfname = arguments.getAsString("branchfield"); //id of the custom field that contains the branch name
        var userKey = arguments.getAsString("userKey"); //id of the user account vault key that stores the API token
        var mergerequestfield = arguments.getAsString("mergerequestidfield");
+       var mergerequeststate = arguments.getAsString("mergerequestidfield");
        var token = getAPIToken(userKey);
        var branchname = wi.getCustomField(cfname);
        var title = wi.getId() + "_" + wi.getTitle().replaceAll(" ", "_");
@@ -89,6 +104,9 @@ with( JavaPackages ) {
        log("Body: " + body);
        var iid = getMergeRequestId(body);
        log("Iid: " + iid);
+       var state = getMergeRequestState(body);
+       log("State: " + state);
        
        wi.setCustomField(mergerequestfield, iid);
+       wi.setCustomField(mergerequeststate, state);
 }

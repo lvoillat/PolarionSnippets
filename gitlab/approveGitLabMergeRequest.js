@@ -4,6 +4,7 @@ The script takes 4 arguments:
 * gitlabURL -  the url of the GitLab instance
 * projectid -  the numeric ID of the GitLab projct
 * mergerequestfield -  the id of the custom field that contains the merge request id
+* mergerequeststate -  the id of the custom field that contains the merge request state
 * userKey - the key of a User Account Valut entry that must be created to store the GitLab API key -  username can be anything, the password must be the token
 
 A log is written in /opt/polarion/data/logs/main/gitlabapprovemergerequest.log or in c:\polarion\data\logs\main\gitlabapprovemergerequest.log
@@ -46,6 +47,20 @@ with( JavaPackages ) {
               return sb.toString();
        }
 
+       function getMergeRequestState(input) {
+           var pattern = ".*\"state\":([0-9]+),.*";
+           var r = Pattern.compile(pattern);
+           var matcher = r.matcher(input);
+           if (matcher.find()) {
+                  log(matcher.group(0));
+                  log(matcher.group(1));
+                  return matcher.group(1);
+           }
+           else {
+                  log("No matches");
+           }
+       }
+       
        var outFile = new FileWriter("./logs/main/gitlabapprovemergerequest.log", true); 
        var out = new BufferedWriter(outFile);
 
@@ -69,5 +84,10 @@ with( JavaPackages ) {
        var response =  conn.getResponseCode();
        log("Response: " + response);
        var body = getResponseBody(conn);
-       log("Body: " + body); 
+       log("Body: " + body);
+       
+       var state = getMergeRequestState(body);
+       log("State: " + state);
+       
+       wi.setCustomField(mergerequeststate, state);
 }
