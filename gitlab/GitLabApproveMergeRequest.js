@@ -48,7 +48,7 @@ with( JavaPackages ) {
        }
 
        function getMergeRequestState(input) {
-           var pattern = ".*\"state\":([0-9]+),.*";
+           var pattern = "\"state\":\"([a-z]+)\",.*";
            var r = Pattern.compile(pattern);
            var matcher = r.matcher(input);
            if (matcher.find()) {
@@ -73,7 +73,12 @@ with( JavaPackages ) {
        log("[mergerequestfield] " + mergerequestfield);
        var mergerequestid = wi.getCustomField(mergerequestfield);
        log("[mergerequestid] " + mergerequestid);
-       var commit_message = "Merge for " +  wi.getId();
+       var mergerequeststate = arguments.getAsString("mergerequeststatefield");
+       log("[mergerequeststate] " + mergerequeststate);
+
+/**    Add check if at least 1 modification was "commited" to the branch/merge request */
+	   
+	   var commit_message = "Merge for " +  wi.getId();
        commit_message = commit_message.replaceAll(" ", "+");
        var urlstring = gitlabURL + "/api/v4/projects/" + id + "/merge_requests/" + mergerequestid + "/merge?merge_commit_message=" + commit_message;
        log(urlstring);
@@ -85,7 +90,6 @@ with( JavaPackages ) {
        log("Response: " + response);
        var body = getResponseBody(conn);
        log("Body: " + body);
-       
        var state = getMergeRequestState(body);
        log("State: " + state);
        

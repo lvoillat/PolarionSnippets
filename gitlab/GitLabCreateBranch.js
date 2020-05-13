@@ -1,5 +1,5 @@
 /**
-This workflow function create a new branch on a specified Gitlab project.
+This workflow function create a new branch on a specified GitLab project.
 The script takes 4 arguments:
 * gitlabURL -  the url of the GitLab instance
 * projectid -  the numeric ID of the GitLab projct
@@ -40,8 +40,8 @@ with( JavaPackages ) {
        var out = new BufferedWriter(outFile);
 
        var wi = workflowContext.getTarget();
-       var gitlabURL = arguments.getAsString("gitlabURL"); //url of gitlab server
-       var id = arguments.getAsString("projectid"); //id of the gitlab project
+       var gitlabURL = arguments.getAsString("gitlabURL"); //url of GitLab server
+       var id = arguments.getAsString("projectid"); //id of the GitLab project
        var cfname = arguments.getAsString("branchfield"); //id of the custom field that contains the branch name
        var branchname = wi.getCustomField(cfname);
        var userKey = arguments.getAsString("userKey"); //id of the user account vault key that stores the API token

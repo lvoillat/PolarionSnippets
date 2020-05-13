@@ -65,7 +65,7 @@ with( JavaPackages ) {
        }
 
        function getMergeRequestState(input) {
-           var pattern = ".*\"state\":([0-9]+),.*";
+           var pattern = "\"state\":\"([a-z]+)\",.*";
            var r = Pattern.compile(pattern);
            var matcher = r.matcher(input);
            if (matcher.find()) {
@@ -87,7 +87,7 @@ with( JavaPackages ) {
        var cfname = arguments.getAsString("branchfield"); //id of the custom field that contains the branch name
        var userKey = arguments.getAsString("userKey"); //id of the user account vault key that stores the API token
        var mergerequestfield = arguments.getAsString("mergerequestidfield");
-       var mergerequeststate = arguments.getAsString("mergerequestidfield");
+       var mergerequeststate = arguments.getAsString("mergerequeststatefield");
        var token = getAPIToken(userKey);
        var branchname = wi.getCustomField(cfname);
        var title = wi.getId() + "_" + wi.getTitle().replaceAll(" ", "_");
@@ -104,9 +104,9 @@ with( JavaPackages ) {
        log("Body: " + body);
        var iid = getMergeRequestId(body);
        log("Iid: " + iid);
-       var state = getMergeRequestState(body);
+       var state = getMergeRequestState(body); 
        log("State: " + state);
-       
+
        wi.setCustomField(mergerequestfield, iid);
        wi.setCustomField(mergerequeststate, state);
 }

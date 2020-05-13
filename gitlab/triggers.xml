@@ -1,0 +1,12 @@
+<EventTriggerConfiguration>
+	<WorkItem>
+		<type id="workpackage">
+			<event trigger="pre-save">
+				<script>
+					<scriptName>DrivePilot-workpackage-pre-save.js</scriptName>
+					<scriptEngine>javaScript</scriptEngine>
+				</script>
+			</event>
+		</type>
+	</WorkItem>
+</EventTriggerConfiguration>

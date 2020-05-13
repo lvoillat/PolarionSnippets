@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Gitlab Servlet
+Bundle-SymbolicName: com.polarion.gitlab.servlet;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: POLARION
+Automatic-Module-Name: com.polarion.gitlab.servlet
+Require-Bundle: com.polarion.portal.tomcat,
+ com.polarion.alm.tracker,
+ org.gitlab.java-gitlab-api;bundle-version="4.0.0"
+Bundle-ClassPath: gitlab-servlet.jar

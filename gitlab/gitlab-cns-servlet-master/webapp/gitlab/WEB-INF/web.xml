@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app
+      PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+      "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app metadata-complete="true">
+	<display-name>GitlabServlet</display-name>
+	
+	<servlet>
+		<servlet-name>GitlabServlet</servlet-name>
+		<display-name>Gitlab Servlet</display-name>
+		<description>Gitlab Servlet</description>
+		<servlet-class>com.polarion.gitlab.servlet.GitlabWebhookServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GitlabServlet</servlet-name>
+		<url-pattern>/*</url-pattern>
+	</servlet-mapping>
+
+</web-app>
