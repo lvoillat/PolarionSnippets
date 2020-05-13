@@ -76,7 +76,8 @@ with( JavaPackages ) {
        var token = getAPIToken(userKey);
        var branchname = wi.getCustomField(cfname);
        var title = wi.getId() + "_" + wi.getTitle().replaceAll(" ", "_");
-       var urlstring = gitlabURL + "/api/v4/projects/" + id + "/merge_requests?source_branch=" + branchname + "&target_branch=master&title=" + title;
+/**       var urlstring = gitlabURL + "/api/v4/projects/" + id + "/merge_requests?source_branch=" + branchname + "&target_branch=master&title=" + title; */
+       var urlstring = gitlabURL + "/api/v4/projects/" + id + "/merge_requests?source_branch=" + branchname + "&target_branch=master&title=" + title + "&remove_source_branch=true";
        log(urlstring);
        var url = new URL(urlstring);
        var conn = url.openConnection();
